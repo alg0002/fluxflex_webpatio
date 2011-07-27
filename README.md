@@ -5,6 +5,11 @@
 
 > ちょっとおしゃれなトピックス式の掲示板です。
 
+オリジナルは、KENT-WEB様(http://www.kent-web.com/)にて公開されている"Web Patio"です。
+
+それを修正し、fluxflex(http://www.fluxflex.com/)で利用可能にしたのがこの"Web Patio for fluxflex"です。
+
+
 ## 特長(Feature)
 (from http://www.kent-web.com/bbs/patio.html)
 
