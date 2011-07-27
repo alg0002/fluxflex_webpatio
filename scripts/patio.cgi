@@ -175,7 +175,11 @@ EOM
 <!-- ’˜ìŒ •\\Ž¦•”Eíœ‹ÖŽ~ ($ver) -->
 <span class="s1">
 - <a href="http://www.kent-web.com/" target="_top">Web Patio</a> -
-</span></div>
+</span><br>
+<span class="s1">
+- Modified by <a href="https://github.com/alg0002/fluxflex_webpatio" target="_top">alg</a> -
+</span>
+</div>
 </body>
 </html>
 EOM
