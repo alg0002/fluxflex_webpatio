@@ -2,10 +2,12 @@
 
 ## これは何？(What is this?)
 (from http://www.kent-web.com/bbs/patio.html)
+
 > ちょっとおしゃれなトピックス式の掲示板です。
 
 ## 特長(Feature)
 (from http://www.kent-web.com/bbs/patio.html)
+
 > 1. ログファイルはスレッド毎に独立して生成され、初期画面ではそのインデックスファイルを読むだけですので、サーバ負荷の軽い掲示板です。
 > 2. 各スレッドには返信記事を投稿することができます。
 > 3. 親スレッドには画像ファイルを１度に３枚までアップロードすることができます。（Ver.3からの新機能）
@@ -20,4 +22,5 @@ http://webpatiofor.fluxflex.com/patio.cgi
 
 ## 利用規定
 http://www.kent-web.com/pubc/kitei.html を参照してください。
+
 (See http://www.kent-web.com/pubc/kitei.html)
