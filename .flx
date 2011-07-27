@@ -1,0 +1,2 @@
+[deploy]
+chmod 755 public_html/dispatch.fcgi
