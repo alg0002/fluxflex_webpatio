@@ -1,7 +1,8 @@
+[setup]
+touch public_html/data/index1.log
+touch public_html/data/index2.log
+touch public_html/data/memdata.cgi
+
 [deploy]
 chmod 755 public_html/dispatch.fcgi
-ls -lA
-ls -lA public_html
 ls -lA public_html/data
-ls -lA scripts
-ls -lA scripts/lib
