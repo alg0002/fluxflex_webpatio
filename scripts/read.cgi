@@ -1,14 +1,14 @@
 #!/usr/local/bin/perl
 
-#„¡„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
-#„  [ WebPatio ]
-#„  patio.cgi - 2007/06/06
-#„  Copyright (c) KentWeb
-#„  webmaster@kent-web.com
-#„  http://www.kent-web.com/
-#„¤„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
+#â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+#â”‚ [ WebPatio ]
+#â”‚ patio.cgi - 2007/06/06
+#â”‚ Copyright (c) KentWeb
+#â”‚ webmaster@kent-web.com
+#â”‚ http://www.kent-web.com/
+#â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-# ŠO•”ƒtƒ@ƒCƒ‹æ‚è‚İ
+# å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«å–ã‚Šè¾¼ã¿
 require '../scripts/init.cgi';
 require $jcode;
 
@@ -20,38 +20,38 @@ elsif ($mode eq "view2") { &view2; }
 &view;
 
 #-------------------------------------------------
-#  ƒXƒŒƒbƒh‰{——
+#  ã‚¹ãƒ¬ãƒƒãƒ‰é–²è¦§
 #-------------------------------------------------
 sub view {
 	local($no,$sub,$res,$key,$no2,$nam,$eml,$com,$dat,$ho,$pw,$url,$resub,$pno);
 	local($job) = @_;
 
-	# ƒAƒ‰[ƒ€‚ğ’è‹`
+	# ã‚¢ãƒ©ãƒ¼ãƒ ã‚’å®šç¾©
 	local($alarm) = int ($m_max * 0.9);
 
-	# ƒXƒ}ƒCƒ‹ƒAƒCƒRƒ“’è‹`
+	# ã‚¹ãƒã‚¤ãƒ«ã‚¢ã‚¤ã‚³ãƒ³å®šç¾©
 	if ($smile) {
 		@s1 = split(/\s+/, $smile1);
 		@s2 = split(/\s+/, $smile2);
 	}
 
-	# ‰˜õƒ`ƒFƒbƒN
+	# æ±šæŸ“ãƒã‚§ãƒƒã‚¯
 	$in{'no'} =~ s/\D//g;
 
-	# ‰ß‹ƒƒO
+	# éå»ãƒ­ã‚°
 	if ($job eq "past") {
 		$bbsback = "mode=past";
-		$guid = "<a href=\"$readcgi?mode=past\">‰ß‹ƒƒO</a> &gt; ‹L–‰{——";
+		$guid = "<a href=\"$readcgi?mode=past\">éå»ãƒ­ã‚°</a> &gt; è¨˜äº‹é–²è¦§";
 
-	# Œ»sƒƒO
+	# ç¾è¡Œãƒ­ã‚°
 	} else {
-		# QÆ”ƒJƒEƒ“ƒg
+		# å‚ç…§æ•°ã‚«ã‚¦ãƒ³ãƒˆ
 		local($data);
 		open(DAT,"+< $logdir/$in{'no'}.dat") || &error("Open Error: $in{'no'}.dat");
 		eval "flock(DAT, 2);";
 		$data = <DAT>;
 
-		# IP‘Šˆá‚Å‚ ‚ê‚ÎXV
+		# IPç›¸é•ã§ã‚ã‚Œã°æ›´æ–°
 		($count,$ip) = split(/:/, $data);
 		if ($addr ne $ip) {
 			$count++;
@@ -62,10 +62,10 @@ sub view {
 		close(DAT);
 
 		$bbsback = "";
-		$guid = "‹L–‰{——";
+		$guid = "è¨˜äº‹é–²è¦§";
 	}
 
-	# ƒXƒŒƒbƒh“Ç‚İ‚İ
+	# ã‚¹ãƒ¬ãƒƒãƒ‰èª­ã¿è¾¼ã¿
 	open(IN,"$logdir/$in{'no'}.cgi") || &error("Open Error: $in{'no'}.cgi");
 	$top1 = <IN>;
 	$top2 = <IN>;
@@ -77,13 +77,13 @@ sub view {
 	$resub = "Re: $sub";
 	$pno = $no;
 
-	# ƒAƒCƒRƒ“’è‹`
+	# ã‚¢ã‚¤ã‚³ãƒ³å®šç¾©
 	if ($job ne "past" && $key eq '0') { $icon = 'fold3.gif'; }
 	elsif ($job ne "past" && $key eq '2') { $icon = 'look.gif'; }
 	elsif ($job ne "past" && $res >= $alarm) { $icon = 'fold5.gif'; }
 	else { $icon = 'fold1.gif'; }
 
-	# ƒwƒbƒ_
+	# ãƒ˜ãƒƒãƒ€
 	if ($job eq "past") {
 		&header($sub);
 	} else {
@@ -91,20 +91,20 @@ sub view {
 		if ($key eq '0') {
 			print "<table><tr><td width=\"5%\"></td>";
 			print "<td width=\"95%\"><img src=\"$imgurl/alarm.gif\"> ";
-			print "‚±‚ÌƒXƒŒƒbƒh‚Í<b>ƒƒbƒN</b>‚³‚ê‚Ä‚¢‚Ü‚·B";
-			print "‹L–‚Ì‰{——‚Ì‚İ‚Æ‚È‚è‚Ü‚·B</td></tr></table>\n";
+			print "ã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã¯<b>ãƒ­ãƒƒã‚¯</b>ã•ã‚Œã¦ã„ã¾ã™ã€‚";
+			print "è¨˜äº‹ã®é–²è¦§ã®ã¿ã¨ãªã‚Šã¾ã™ã€‚</td></tr></table>\n";
 
 		} elsif ($key == 2) {
 			print "<table><tr><td width=\"5%\"></td>";
 			print "<td width=\"95%\"><img src=\"$imgurl/alarm.gif\"> ";
-			print "‚±‚ÌƒXƒŒƒbƒh‚Í<b>ŠÇ—Ò‚©‚ç‚ÌƒƒbƒZ[ƒW</b>‚Å‚·B";
+			print "ã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã¯<b>ç®¡ç†è€…ã‹ã‚‰ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</b>ã§ã™ã€‚";
 			print "</td></tr></table>\n";
 
 		} elsif ($alarm <= $res) {
 			print "<table><tr><td width=\"5%\"></td>";
 			print "<td width=\"95%\"><img src=\"$imgurl/alarm.gif\"> ";
-			print "•ÔM‹L–”‚ª<b>$res</b>Œ‚ ‚è‚Ü‚·B";
-			print "<b>$m_max</b>Œ‚ğ’´‚¦‚é‚Æ‘‚«‚İ‚ª‚Å‚«‚È‚­‚È‚è‚Ü‚·B";
+			print "è¿”ä¿¡è¨˜äº‹æ•°ãŒ<b>$res</b>ä»¶ã‚ã‚Šã¾ã™ã€‚";
+			print "<b>$m_max</b>ä»¶ã‚’è¶…ãˆã‚‹ã¨æ›¸ãè¾¼ã¿ãŒã§ããªããªã‚Šã¾ã™ã€‚";
 			print "</td></tr></table>\n";
 		}
 	}
@@ -112,7 +112,7 @@ sub view {
 	print <<"EOM";
 <div align="center">
 <table width="95%"><tr><td align="right" nowrap>
-<a href="$bbscgi?">ƒgƒbƒvƒy[ƒW</a> &gt; $guid
+<a href="$bbscgi?">ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸</a> &gt; $guid
 </td></tr></table>
 <Table border="0" cellspacing="0" cellpadding="0" width="95%">
 <Tr><Td bgcolor="$col1">
@@ -122,15 +122,15 @@ sub view {
 <font color="$col2"><b>$sub</b></font></td></tr>
 <tr bgcolor="$col1"><td bgcolor="$col2" colspan=2>
 <dl>
-<dt>“úF $dat
-<dt>–¼‘OF <b>$nam</b>
+<dt>æ—¥æ™‚ï¼š $dat
+<dt>åå‰ï¼š <b>$nam</b>
 EOM
 
 	if ($eml && $mvw ne '0') {
 		print "&nbsp; &lt;<a href=\"mailto:$eml\" class=\"num\">$eml</a>&gt;\n";
 	}
 	if ($url) {
-		print "<dt>QÆF <a href=\"$url\" target=\"_blank\">$url</a>\n";
+		print "<dt>å‚ç…§ï¼š <a href=\"$url\" target=\"_blank\">$url</a>\n";
 	}
 
 	print "<br><br>\n<dd>$com\n";
@@ -155,11 +155,11 @@ EOM
 	}
 	print "</dl>\n";
 
-	# ƒƒ“ƒeƒ{ƒ^ƒ“
+	# ãƒ¡ãƒ³ãƒ†ãƒœã‚¿ãƒ³
 	if ($job ne "past" && $key ne '2') {
 		print "<div align=\"right\">";
 		print "<a href=\"$registcgi?mode=mente&f=$in{'no'}\">";
-		print "<img src=\"$imgurl/mente.gif\" alt=\"ƒƒ“ƒe\" border=\"0\"></a></div>\n";
+		print "<img src=\"$imgurl/mente.gif\" alt=\"ãƒ¡ãƒ³ãƒ†\" border=\"0\"></a></div>\n";
 	}
 
 	print <<EOM;
@@ -168,7 +168,7 @@ EOM
 <p>
 EOM
 
-	# ƒy[ƒWŒJ‰zƒ{ƒ^ƒ“
+	# ãƒšãƒ¼ã‚¸ç¹°è¶Šãƒœã‚¿ãƒ³
 	local($pglog);
 	if ($p eq "") { $p = 1; }
 	if ($res > 0) {
@@ -188,7 +188,7 @@ EOM
 		print "<table border=\"0\" cellspacing=\"1\" cellpadding=\"5\" width=\"100%\">\n";
 	}
 
-	# •\¦”ÍˆÍ‚ğ’è‹`
+	# è¡¨ç¤ºç¯„å›²ã‚’å®šç¾©
 	$from = $res - ($t_max * $p);
 	$to   = $from + $t_max;
 
@@ -206,20 +206,20 @@ EOM
 		print "<img src=\"$imgurl/file.gif\"> <b>$sub</b> ";
 		print "<span class=\"num\">( No.$no )</span></td>";
 		print "</tr><tr bgcolor=\"$col1\"><td bgcolor=\"$col2\">\n";
-		print "<dl><dt>“úF $dat<dt>–¼‘OF <b>$nam</b>";
+		print "<dl><dt>æ—¥æ™‚ï¼š $dat<dt>åå‰ï¼š <b>$nam</b>";
 
 		if ($eml && $mvw ne '0') {
 			print "&nbsp; &lt;<a href=\"mailto:$eml\" class=\"num\">$eml</a>&gt;";
 		}
 		if ($url) {
-			print "<dt>QÆF <a href=\"$url\" target=\"_blank\">$url</a>\n";
+			print "<dt>å‚ç…§ï¼š <a href=\"$url\" target=\"_blank\">$url</a>\n";
 		}
 		print "<br><br>\n<dd>$com</dl>\n";
 
 		if ($job ne "past") {
 			print "<div align=\"right\">";
 			print "<a href=\"$registcgi?mode=mente&f=$in{'no'}&no=$no\">";
-			print "<img src=\"$imgurl/mente.gif\" alt=\"ƒƒ“ƒe\" border=\"0\"></a></div>";
+			print "<img src=\"$imgurl/mente.gif\" alt=\"ãƒ¡ãƒ³ãƒ†\" border=\"0\"></a></div>";
 		}
 		print "</div></td></tr>\n";
 	}
@@ -239,26 +239,26 @@ EOM
 }
 
 #-------------------------------------------------
-#  ŒÂ•Ê‹L–‰{——
+#  å€‹åˆ¥è¨˜äº‹é–²è¦§
 #-------------------------------------------------
 sub view2 {
-	# ƒXƒ}ƒCƒ‹ƒAƒCƒRƒ“’è‹`
+	# ã‚¹ãƒã‚¤ãƒ«ã‚¢ã‚¤ã‚³ãƒ³å®šç¾©
 	if ($smile) {
 		@s1 = split(/\s+/, $smile1);
 		@s2 = split(/\s+/, $smile2);
 	}
 
-	# ‰˜õƒ`ƒFƒbƒN
+	# æ±šæŸ“ãƒã‚§ãƒƒã‚¯
 	$in{'f'}  =~ s/\D//g;
 
-	# ‹L–No”F¯
+	# è¨˜äº‹Noèªè­˜
 	if ($in{'no'} =~ /^\d+$/) { $ptn = 1; $start = $in{'no'}; }
 	elsif ($in{'no'} =~ /^(\d+)\-$/) { $ptn = 2; $start = $1; }
 	elsif ($in{'no'} =~ /^(\d+)\-(\d+)$/) { $ptn = 3; $start = $1; $end = $2; }
-	else { &error("‹L–No‚ª•s³‚Å‚·"); }
+	else { &error("è¨˜äº‹NoãŒä¸æ­£ã§ã™"); }
 
 	unless (-e "$logdir/$in{'f'}\.cgi") {
-		 &error("ƒXƒŒƒbƒh‚ªŒ©“–‚½‚è‚Ü‚¹‚ñ");
+		 &error("ã‚¹ãƒ¬ãƒƒãƒ‰ãŒè¦‹å½“ãŸã‚Šã¾ã›ã‚“");
 	}
 
 	&header($sub);
@@ -277,18 +277,18 @@ EOM
 		if ($start == $no) { $flag=1; }
 		if (!$flag) { next; }
 
-		# ‹L–•\¦
+		# è¨˜äº‹è¡¨ç¤º
 		print "<tr bgcolor=\"$col1\"><td bgcolor=\"$col3\" width=\"100%\">";
 		print "<img src=\"$imgurl/file.gif\"> <b>$sub</b> ";
 		print "<span class=num>( No.$no )</span></td></tr>\n";
 		print "<tr bgcolor=\"$col1\"><td bgcolor=\"$col2\">";
-		print "<dl><dt>“úF $dat<dt>–¼‘OF <b>$nam</b>";
+		print "<dl><dt>æ—¥æ™‚ï¼š $dat<dt>åå‰ï¼š <b>$nam</b>";
 
 		if ($eml && $mvw ne '0') {
 			print "&nbsp; &lt;<a href=\"mailto:$eml\" class=\"num\">$eml</a>&gt;\n";
 		}
 		if ($url) {
-			print "<dt>QÆF <a href=\"$url\" target=\"_blank\">$url</a>\n";
+			print "<dt>å‚ç…§ï¼š <a href=\"$url\" target=\"_blank\">$url</a>\n";
 		}
 		$com = &auto_link($com, $in{'f'});
 
@@ -300,14 +300,14 @@ EOM
 
 	if (!$flag) {
 		print "<tr bgcolor=\"$col1\"><th bgcolor=\"$col2\">";
-		print "<h3>‹L–‚ªŒ©“–‚½‚è‚Ü‚¹‚ñ</h3></th></tr>\n";
+		print "<h3>è¨˜äº‹ãŒè¦‹å½“ãŸã‚Šã¾ã›ã‚“</h3></th></tr>\n";
 	}
 
 	print <<"EOM";
 </table></Td></Tr></Table>
 <br><br>
 <form>
-<input type="button" value="ƒEƒCƒ“ƒhƒE‚ğ•Â‚¶‚é" onclick="top.close();">
+<input type="button" value="ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã‚‹" onclick="top.close();">
 </form>
 </div>
 </body>
@@ -317,15 +317,15 @@ EOM
 }
 
 #-------------------------------------------------
-#  V‹KƒtƒH[ƒ€
+#  æ–°è¦ãƒ•ã‚©ãƒ¼ãƒ 
 #-------------------------------------------------
 sub form {
-	# Œ ŒÀƒ`ƒFƒbƒN
+	# æ¨©é™ãƒã‚§ãƒƒã‚¯
 	if ($authkey && $my_rank < 2) {
-		&error("“Še‚ÌŒ ŒÀ‚ª‚ ‚è‚Ü‚¹‚ñ");
+		&error("æŠ•ç¨¿ã®æ¨©é™ãŒã‚ã‚Šã¾ã›ã‚“");
 	}
 
-	# ƒwƒbƒ_
+	# ãƒ˜ãƒƒãƒ€
 	if ($smile) { &header("", "js"); }
 	else { &header(); }
 
@@ -334,7 +334,7 @@ sub form {
 <table width="95%">
 <tr>
   <td align="right" nowrap>
-	<a href="$bbscgi?">ƒgƒbƒvƒy[ƒW</a> &gt; V‹KƒXƒŒƒbƒhì¬
+	<a href="$bbscgi?">ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸</a> &gt; æ–°è¦ã‚¹ãƒ¬ãƒƒãƒ‰ä½œæˆ
   </td>
 </tr></table>
 <Table border="0" cellspacing="0" cellpadding="0" width="95%">
@@ -342,7 +342,7 @@ sub form {
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col3"><td bgcolor="$col3" nowrap width="92%">
 <img src="$imgurl/pen.gif" align="middle">
-&nbsp; <b>V‹KƒXƒŒƒbƒhì¬ƒtƒH[ƒ€</b></td>
+&nbsp; <b>æ–°è¦ã‚¹ãƒ¬ãƒƒãƒ‰ä½œæˆãƒ•ã‚©ãƒ¼ãƒ </b></td>
 </tr></table></Td></Tr></Table>
 EOM
 
@@ -353,18 +353,18 @@ EOM
 }
 
 #-------------------------------------------------
-#  ƒtƒH[ƒ€“à—e
+#  ãƒ•ã‚©ãƒ¼ãƒ å†…å®¹
 #-------------------------------------------------
 sub form2 {
 	local($job) = @_;
 	local($submit);
 
-	# Œ ŒÀƒ`ƒFƒbƒN
+	# æ¨©é™ãƒã‚§ãƒƒã‚¯
 	if ($authkey && $my_rank < 2) {
 		return;
 	}
 
-	# ƒNƒbƒL[æ“¾
+	# ã‚¯ãƒƒã‚­ãƒ¼å–å¾—
 	local($cnam,$ceml,$cpwd,$curl,$cmvw) = &get_cookie;
 	if ($curl eq "") { $curl = "http://"; }
 
@@ -380,24 +380,24 @@ sub form2 {
 <Tr><Td bgcolor="$col1">
 <table cellspacing="1" cellpadding="5" width="100%" border="0">
 <tr bgcolor="$col2">
-  <th bgcolor="$col2" width="80">‘è–¼</th>
+  <th bgcolor="$col2" width="80">é¡Œå</th>
   <td><input type="text" name="sub" size="30" value="$resub" maxlength="30">
 EOM
 
 	if ($job eq "new") {
-		$submit = 'ƒXƒŒƒbƒh‚ğ¶¬';
+		$submit = 'ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ç”Ÿæˆ';
 	} else {
-		$submit = ' •ÔM‚·‚é ';
+		$submit = ' è¿”ä¿¡ã™ã‚‹ ';
 		print "<input type=\"hidden\" name=\"res\" value=\"$in{'no'}\">\n";
 		print "<input type=\"checkbox\" name=\"sort\" value=\"1\" checked>";
-		print "ƒXƒŒƒbƒh‚ğƒgƒbƒv‚Öƒ\\[ƒg\n";
+		print "ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ãƒˆãƒƒãƒ—ã¸ã‚½\ãƒ¼ãƒˆ\n";
 	}
 
 	print <<"EOM";
   </td>
 </tr>
 <tr bgcolor="$col2">
-  <th bgcolor="$col2" width="80">–¼‘O</th>
+  <th bgcolor="$col2" width="80">åå‰</th>
   <td><input type="text" name="name" size="30" value="$cnam" maxlength="20"></td>
 </tr>
 <tr bgcolor="$col2">
@@ -407,7 +407,7 @@ EOM
 EOM
 
 	if ($cmvw eq "") { $cmvw = 1; }
-	@mvw = ('”ñ•\¦','•\¦');
+	@mvw = ('éè¡¨ç¤º','è¡¨ç¤º');
 	foreach (0,1) {
 		if ($cmvw == $_) {
 			print "<option value=\"$_\" selected>$mvw[$_]\n";
@@ -425,11 +425,11 @@ EOM
 </tr>
 EOM
 
-	# V‹KƒXƒŒ‚Í‰æ‘œƒtƒH[ƒ€
+	# æ–°è¦ã‚¹ãƒ¬ã¯ç”»åƒãƒ•ã‚©ãƒ¼ãƒ 
 	if ($image_upl && $job eq "new") {
 		print "<tr bgcolor=\"$col2\">\n";
 		print "<td bgcolor=\"$col2\" width=\"80\" align=\"center\">";
-		print "<b>‰æ‘œ“Y•t</b><br><span style=\"font-size:9px\">JPEG/GIF/PNG</span></td>";
+		print "<b>ç”»åƒæ·»ä»˜</b><br><span style=\"font-size:9px\">JPEG/GIF/PNG</span></td>";
 		print "<td bgcolor=\"$col2\">\n";
 
 		foreach $i (1 .. 3) {
@@ -441,35 +441,35 @@ EOM
 
 	print <<EOM;
 <tr bgcolor="$col2">
-  <th bgcolor="$col2" width="80">ƒpƒXƒ[ƒh</th>
+  <th bgcolor="$col2" width="80">ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</th>
   <td bgcolor="$col2">
   <input type="password" name="pwd" size="8" value="$cpwd" maxlength="8">
-   i‹L–ƒƒ“ƒe‚Ég—pj
+   ï¼ˆè¨˜äº‹ãƒ¡ãƒ³ãƒ†æ™‚ã«ä½¿ç”¨ï¼‰
   </td>
 </tr>
 EOM
 
-	# “ŠeƒL[
+	# æŠ•ç¨¿ã‚­ãƒ¼
 	if ($regist_key) {
 
-		# ƒL[¶¬
+		# ã‚­ãƒ¼ç”Ÿæˆ
 		require $regkeypl;
 		local($str_plain,$str_crypt) = &pcp_makekey;
 
-		# “ü—ÍƒtƒH[ƒ€
-		print qq |<tr bgcolor="$col2"><th bgcolor="$col2" width="80">“ŠeƒL[</th>|;
+		# å…¥åŠ›ãƒ•ã‚©ãƒ¼ãƒ 
+		print qq |<tr bgcolor="$col2"><th bgcolor="$col2" width="80">æŠ•ç¨¿ã‚­ãƒ¼</th>|;
 		print qq |<td bgcolor="$col2"><input type="text" name="regikey" size="6" style="ime-mode:inactive">\n|;
-		print qq |i“Še <img src="$registkeycgi?$str_crypt" align="absmiddle" alt="“ŠeƒL["> ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢j</td></tr>\n|;
+		print qq |ï¼ˆæŠ•ç¨¿æ™‚ <img src="$registkeycgi?$str_crypt" align="absmiddle" alt="æŠ•ç¨¿ã‚­ãƒ¼"> ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼‰</td></tr>\n|;
 		print qq |<input type="hidden" name="str_crypt" value="$str_crypt">\n|;
 	}
 
 	print <<EOM;
 <tr bgcolor="$col2">
-  <th bgcolor="$col2" width="80">ƒRƒƒ“ƒg</th>
+  <th bgcolor="$col2" width="80">ã‚³ãƒ¡ãƒ³ãƒˆ</th>
   <td bgcolor="$col2">
 EOM
 
-	# ƒAƒCƒRƒ“
+	# ã‚¢ã‚¤ã‚³ãƒ³
 	if ($smile) {
 		@s1 = split(/\s+/, $smile1);
 		@s2 = split(/\s+/, $smile2);
@@ -486,31 +486,31 @@ EOM
   <td bgcolor="$col2"><br></td>
   <td bgcolor="$col2">
     <input type="submit" value="$submit"> &nbsp;&nbsp;
-    <input type="checkbox" name="cook" value="on" checked>ƒNƒbƒL[•Û‘¶</td>
+    <input type="checkbox" name="cook" value="on" checked>ã‚¯ãƒƒã‚­ãƒ¼ä¿å­˜</td>
   </form></tr></table>
 </Td></Tr></Table>
 EOM
 }
 
 #-------------------------------------------------
-#  ‰ß‹ƒƒO‰{——
+#  éå»ãƒ­ã‚°é–²è¦§
 #-------------------------------------------------
 sub past {
-	# ‹L–‰{——
+	# è¨˜äº‹é–²è¦§
 	if ($in{'no'}) { &view("past");	}
 
 	&header();
 	print <<"EOM";
 <div align="center">
 <table width="95%"><tr><td align="right" nowrap>
-<a href="$bbscgi?">ƒgƒbƒvƒy[ƒW</a> &gt; ‰ß‹ƒƒO
+<a href="$bbscgi?">ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸</a> &gt; éå»ãƒ­ã‚°
 </td></tr></table>
 <Table border="0" cellspacing="0" cellpadding="0" width="95%">
 <Tr bgcolor="$col1"><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col3"><td bgcolor="$col3" nowrap width="92%">
 <img src="$imgurl/memo1.gif" align="middle">
-&nbsp;<b>‰ß‹ƒƒO</b></td>
+&nbsp;<b>éå»ãƒ­ã‚°</b></td>
 </tr></table></Td></Tr></Table>
 <P>
 <Table border="0" cellspacing="0" cellpadding="0" width="95%">
@@ -518,14 +518,14 @@ sub past {
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col2">
   <td bgcolor="$col2" width="16"><br></td>
-  <td bgcolor="$col2" width="80%"><b>ƒXƒŒƒbƒh</b></td>
-  <td bgcolor="$col2" nowrap><b>“ŠeÒ</b></td>
-  <td bgcolor="$col2" nowrap><b>•ÔM”</b></td>
-  <td bgcolor="$col2" nowrap><b>ÅIXV</b></td>
+  <td bgcolor="$col2" width="80%"><b>ã‚¹ãƒ¬ãƒƒãƒ‰</b></td>
+  <td bgcolor="$col2" nowrap><b>æŠ•ç¨¿è€…</b></td>
+  <td bgcolor="$col2" nowrap><b>è¿”ä¿¡æ•°</b></td>
+  <td bgcolor="$col2" nowrap><b>æœ€çµ‚æ›´æ–°</b></td>
 </tr>
 EOM
 
-	# ƒXƒŒƒbƒh“WŠJ
+	# ã‚¹ãƒ¬ãƒƒãƒ‰å±•é–‹
 	local($i) = 0;
 	if ($p eq "") { $p = 0; }
 	open(IN,"$pastfile") || &error("Open Error: $pastfile");
@@ -548,12 +548,12 @@ EOM
 
 	if (!$i) {
 		print "<td bgcolor=\"$col2\"></td>";
-		print "<td colspan=\"4\" bgcolor=\"$col2\">- Œ»İ‰ß‹ƒƒO‚Í‚ ‚è‚Ü‚¹‚ñ -</td>\n";
+		print "<td colspan=\"4\" bgcolor=\"$col2\">- ç¾åœ¨éå»ãƒ­ã‚°ã¯ã‚ã‚Šã¾ã›ã‚“ -</td>\n";
 	}
 
 	print "</table></Td></Tr></Table>\n";
 
-	# ƒy[ƒWˆÚ“®ƒ{ƒ^ƒ“•\¦
+	# ãƒšãƒ¼ã‚¸ç§»å‹•ãƒœã‚¿ãƒ³è¡¨ç¤º
 	if ($p - $menu2 >= 0 || $p + $menu2 < $i) {
 		local($x,$y) = (1,0);
 		print "<p><table width=\"95%\"><tr><td class=\"num\"> Page: ";
@@ -576,7 +576,7 @@ EOM
 
 
 #-------------------------------------------------
-#  ƒy[ƒWŒJ‰zƒ{ƒ^ƒ“
+#  ãƒšãƒ¼ã‚¸ç¹°è¶Šãƒœã‚¿ãƒ³
 #-------------------------------------------------
 sub pagelink {
 	local($end,$p) = @_;
@@ -595,7 +595,7 @@ sub pagelink {
 }
 
 #-------------------------------------------------
-#  ƒŠƒ“ƒNˆ—
+#  ãƒªãƒ³ã‚¯å‡¦ç†
 #-------------------------------------------------
 sub auto_link {
 	local($msg, $f) = @_;
@@ -603,7 +603,7 @@ sub auto_link {
 	$msg =~ s/([^=^\"]|^)(http\:[\w\.\~\-\/\?\&\+\=\:\@\%\;\#\%]+)/$1<a href=\"$2\" target=\"_target\">$2<\/a>/g;
 	$msg =~ s/&gt;&gt;(\d)([\d\-]*)/<a href=\"$readcgi?mode=view2&f=$f&no=$1$2\" target=\"_blank\">&gt;&gt;$1$2<\/a>/gi;
 
-	# ƒXƒ}ƒCƒ‹‰æ‘œ•ÏŠ·
+	# ã‚¹ãƒã‚¤ãƒ«ç”»åƒå¤‰æ›
 	if ($smile) {
 		local($tmp);
 		foreach (0 .. $#s1) {
@@ -616,12 +616,12 @@ sub auto_link {
 }
 
 #-------------------------------------------------
-#  ‰æ‘œƒŠƒTƒCƒY
+#  ç”»åƒãƒªã‚µã‚¤ã‚º
 #-------------------------------------------------
 sub resize {
 	local($w,$h) = @_;
 
-	# ‰æ‘œ•\¦k¬
+	# ç”»åƒè¡¨ç¤ºç¸®å°
 	if ($w > $img_max_w || $h > $img_max_h) {
 
 		local($w2,$h2,$key);
@@ -639,13 +639,13 @@ sub resize {
 }
 
 #-------------------------------------------------
-#  ƒNƒbƒL[æ“¾
+#  ã‚¯ãƒƒã‚­ãƒ¼å–å¾—
 #-------------------------------------------------
 sub get_cookie {
-	# ƒNƒbƒL[‚ğæ“¾
+	# ã‚¯ãƒƒã‚­ãƒ¼ã‚’å–å¾—
 	local($cook) = $ENV{'HTTP_COOKIE'};
 
-	# ŠY“–ID‚ğæ‚èo‚·
+	# è©²å½“IDã‚’å–ã‚Šå‡ºã™
 	local(%cook);
 	foreach ( split(/;/, $cook) ) {
 		local($key, $val) = split(/=/);
@@ -654,7 +654,7 @@ sub get_cookie {
 		$cook{$key} = $val;
 	}
 
-	# ƒf[ƒ^‚ğURLƒfƒR[ƒh‚µ‚Ä•œŒ³
+	# ãƒ‡ãƒ¼ã‚¿ã‚’URLãƒ‡ã‚³ãƒ¼ãƒ‰ã—ã¦å¾©å…ƒ
 	local(@cook);
 	foreach ( split(/<>/, $cook{'WEB_PATIO'}) ) {
 		s/%([0-9A-Fa-f][0-9A-Fa-f])/pack("H2", $1)/eg;

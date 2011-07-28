@@ -1,14 +1,14 @@
 #!/usr/local/bin/perl
 
-#„¡„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
-#„  [ WebPatio ]
-#„  regist.cgi - 2011/07/06
-#„  Copyright (c) KentWeb
-#„  webmaster@kent-web.com
-#„  http://www.kent-web.com/
-#„¤„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
+#â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+#â”‚ [ WebPatio ]
+#â”‚ regist.cgi - 2011/07/06
+#â”‚ Copyright (c) KentWeb
+#â”‚ webmaster@kent-web.com
+#â”‚ http://www.kent-web.com/
+#â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-# ŠO•”ƒtƒ@ƒCƒ‹æ‚è‚İ
+# å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«å–ã‚Šè¾¼ã¿
 require '../scripts/init.cgi';
 require $jcode;
 
@@ -21,107 +21,107 @@ elsif ($mode eq "edit_log") {
 	require $editlog;
 	&edit_log;
 }
-&error("•s–¾‚Èˆ—‚Å‚·");
+&error("ä¸æ˜ãªå‡¦ç†ã§ã™");
 
 #-------------------------------------------------
-#  ‹L–“Šeˆ—
+#  è¨˜äº‹æŠ•ç¨¿å‡¦ç†
 #-------------------------------------------------
 sub regist {
 	local($sub,$key,$flg,$i,@top);
 
-	# Œ ŒÀƒ`ƒFƒbƒN
+	# æ¨©é™ãƒã‚§ãƒƒã‚¯
 	if ($authkey && $my_rank < 2) {
-		&error("“Še‚ÌŒ ŒÀ‚ª‚ ‚è‚Ü‚¹‚ñ$my_rank");
+		&error("æŠ•ç¨¿ã®æ¨©é™ãŒã‚ã‚Šã¾ã›ã‚“$my_rank");
 	}
 
-	# POSTŒÀ’è
-	if ($postonly && !$postflag) { &error("•s³‚ÈƒAƒNƒZƒX‚Å‚·"); }
+	# POSTé™å®š
+	if ($postonly && !$postflag) { &error("ä¸æ­£ãªã‚¢ã‚¯ã‚»ã‚¹ã§ã™"); }
 
-	# ƒ`ƒFƒbƒN
+	# ãƒã‚§ãƒƒã‚¯
 	if ($no_wd) { &no_wd; }
 	if ($jp_wd) { &jp_wd; }
 	if ($urlnum > 0) { &urlnum; }
 
-	# ƒRƒƒ“ƒg•¶š”ƒ`ƒFƒbƒN
+	# ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—æ•°ãƒã‚§ãƒƒã‚¯
 	if (length($i_com) > $max_msg*2) {
-		&error("•¶š”ƒI[ƒo[‚Å‚·B<br>‘SŠp$max_msg•¶šˆÈ“à‚Å‹Lq‚µ‚Ä‚­‚¾‚³‚¢");
+		&error("æ–‡å­—æ•°ã‚ªãƒ¼ãƒãƒ¼ã§ã™ã€‚<br>å…¨è§’$max_msgæ–‡å­—ä»¥å†…ã§è¨˜è¿°ã—ã¦ãã ã•ã„");
 	}
 
-	# ‰˜õƒ`ƒFƒbƒN
+	# æ±šæŸ“ãƒã‚§ãƒƒã‚¯
 	$in{'res'} =~ s/\D//g;
 
-	# “Še“à—eƒ`ƒFƒbƒN
-	if ($i_com eq "") { &error("ƒRƒƒ“ƒg‚Ì“à—e‚ª‚ ‚è‚Ü‚¹‚ñ"); }
+	# æŠ•ç¨¿å†…å®¹ãƒã‚§ãƒƒã‚¯
+	if ($i_com eq "") { &error("ã‚³ãƒ¡ãƒ³ãƒˆã®å†…å®¹ãŒã‚ã‚Šã¾ã›ã‚“"); }
 	if ($i_nam eq "") {
-		if ($in_name) { &error("–¼‘O‚Í‹L“ü•K{‚Å‚·"); }
-		else { $i_nam = '–¼–³‚µ‚ÌƒSƒ“ƒxƒG'; }
+		if ($in_name) { &error("åå‰ã¯è¨˜å…¥å¿…é ˆã§ã™"); }
+		else { $i_nam = 'åç„¡ã—ã®ã‚´ãƒ³ãƒ™ã‚¨'; }
 	}
-	if ($in_mail && $in{'email'} eq "") { &error("E-mail‚Í‹L“ü•K{‚Å‚·"); }
+	if ($in_mail && $in{'email'} eq "") { &error("E-mailã¯è¨˜å…¥å¿…é ˆã§ã™"); }
 	if ($in{'email'} && $in{'email'} !~ /^[\w\.\-]+\@[\w\.\-]+\.[a-zA-Z]{2,6}$/) {
-		&error("E-mail‚Ì“ü—Í“à—e‚ª•s³‚Å‚·");
+		&error("E-mailã®å…¥åŠ›å†…å®¹ãŒä¸æ­£ã§ã™");
 	}
-	if ($i_sub eq "") { &error("ƒ^ƒCƒgƒ‹‚Í‹L“ü•K{‚Å‚·"); }
-	if ($i_sub =~ /^(\x81\x40|\s)+$/) { &error("ƒ^ƒCƒgƒ‹‚Í³‚µ‚­‹L“ü‚µ‚Ä‚­‚¾‚³‚¢"); }
-	if ($i_nam =~ /^(\x81\x40|\s)+$/) { &error("–¼‘O‚Í³‚µ‚­‹L“ü‚µ‚Ä‚­‚¾‚³‚¢"); }
-	if ($i_com =~ /^(\x81\x40|\s|<br>)+$/) { &error("ƒRƒƒ“ƒg‚Í³‚µ‚­‹L“ü‚µ‚Ä‚­‚¾‚³‚¢"); }
-	if ($in_pwd && $in{'pwd'} eq "") { &error("ƒpƒXƒ[ƒh‚Í“ü—Í•K{‚Å‚·"); }
-	if (length($in{'pwd'}) > 8) { &error("ƒpƒXƒ[ƒh‚Í8•¶šˆÈ“à‚É‚µ‚Ä‰º‚³‚¢"); }
+	if ($i_sub eq "") { &error("ã‚¿ã‚¤ãƒˆãƒ«ã¯è¨˜å…¥å¿…é ˆã§ã™"); }
+	if ($i_sub =~ /^(\x81\x40|\s)+$/) { &error("ã‚¿ã‚¤ãƒˆãƒ«ã¯æ­£ã—ãè¨˜å…¥ã—ã¦ãã ã•ã„"); }
+	if ($i_nam =~ /^(\x81\x40|\s)+$/) { &error("åå‰ã¯æ­£ã—ãè¨˜å…¥ã—ã¦ãã ã•ã„"); }
+	if ($i_com =~ /^(\x81\x40|\s|<br>)+$/) { &error("ã‚³ãƒ¡ãƒ³ãƒˆã¯æ­£ã—ãè¨˜å…¥ã—ã¦ãã ã•ã„"); }
+	if ($in_pwd && $in{'pwd'} eq "") { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯å…¥åŠ›å¿…é ˆã§ã™"); }
+	if (length($in{'pwd'}) > 8) { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯8æ–‡å­—ä»¥å†…ã«ã—ã¦ä¸‹ã•ã„"); }
 	if ($in{'url'} eq "http://") { $in{'url'} = ""; }
 	elsif ($in{url} && $in{url} !~ /^https?:\/\/[\w-.!~*'();\/?:\@&=+\$,%#]+$/) {
-		&error("URLî•ñ‚ª•s³‚Å‚·");
+		&error("URLæƒ…å ±ãŒä¸æ­£ã§ã™");
 	}
 
-	# “ŠeƒL[ƒ`ƒFƒbƒN
+	# æŠ•ç¨¿ã‚­ãƒ¼ãƒã‚§ãƒƒã‚¯
 	if ($regist_key) {
 		require $regkeypl;
 
 		if ($in{'regikey'} !~ /^\d{4}$/) {
-			&error("“ŠeƒL[‚ª“ü—Í•s”õ‚Å‚·B<p>“ŠeƒtƒH[ƒ€‚É–ß‚Á‚ÄÄ“Ç‚İŒãAw’è‚Ì”š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			&error("æŠ•ç¨¿ã‚­ãƒ¼ãŒå…¥åŠ›ä¸å‚™ã§ã™ã€‚<p>æŠ•ç¨¿ãƒ•ã‚©ãƒ¼ãƒ ã«æˆ»ã£ã¦å†èª­è¾¼ã¿å¾Œã€æŒ‡å®šã®æ•°å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		}
 
-		# “ŠeƒL[ƒ`ƒFƒbƒN
-		# -1 : ƒL[•sˆê’v
-		#  0 : §ŒÀŠÔƒI[ƒo[
-		#  1 : ƒL[ˆê’v
+		# æŠ•ç¨¿ã‚­ãƒ¼ãƒã‚§ãƒƒã‚¯
+		# -1 : ã‚­ãƒ¼ä¸ä¸€è‡´
+		#  0 : åˆ¶é™æ™‚é–“ã‚ªãƒ¼ãƒãƒ¼
+		#  1 : ã‚­ãƒ¼ä¸€è‡´
 		local($chk) = &registkey_chk($in{'regikey'}, $in{'str_crypt'});
 		if ($chk == 0) {
-			&error("“ŠeƒL[‚ª§ŒÀŠÔ‚ğ’´‰ß‚µ‚Ü‚µ‚½B<p>“ŠeƒtƒH[ƒ€‚É–ß‚Á‚ÄÄ“Ç‚İŒãAw’è‚Ì”š‚ğÄ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			&error("æŠ•ç¨¿ã‚­ãƒ¼ãŒåˆ¶é™æ™‚é–“ã‚’è¶…éã—ã¾ã—ãŸã€‚<p>æŠ•ç¨¿ãƒ•ã‚©ãƒ¼ãƒ ã«æˆ»ã£ã¦å†èª­è¾¼ã¿å¾Œã€æŒ‡å®šã®æ•°å­—ã‚’å†å…¥åŠ›ã—ã¦ãã ã•ã„");
 		} elsif ($chk == -1) {
-			&error("“ŠeƒL[‚ª•s³‚Å‚·B<p>“ŠeƒtƒH[ƒ€‚É–ß‚Á‚ÄÄ“Ç‚İŒãAw’è‚Ì”š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+			&error("æŠ•ç¨¿ã‚­ãƒ¼ãŒä¸æ­£ã§ã™ã€‚<p>æŠ•ç¨¿ãƒ•ã‚©ãƒ¼ãƒ ã«æˆ»ã£ã¦å†èª­è¾¼ã¿å¾Œã€æŒ‡å®šã®æ•°å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
 		}
 	}
 
-	# ƒgƒŠƒbƒv
+	# ãƒˆãƒªãƒƒãƒ—
 	$i_nam2 = &trip($i_nam);
 
-	# ƒpƒXƒ[ƒhˆÃ†‰»
+	# ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰æš—å·åŒ–
 	my $pwd;
 	if ($in{'pwd'} ne "") { $pwd = &encrypt($in{'pwd'}); }
 
-	# V‹K“ŠeiV‹KƒXƒŒƒbƒhì¬j
+	# æ–°è¦æŠ•ç¨¿ï¼ˆæ–°è¦ã‚¹ãƒ¬ãƒƒãƒ‰ä½œæˆï¼‰
 	if ($in{'res'} eq "") {
 
-		# indexƒtƒ@ƒCƒ‹
+		# indexãƒ•ã‚¡ã‚¤ãƒ«
 		local($i, $flg, $top, @new, @tmp, @top);
 		open(DAT,"+< $nowfile") || &error("Open Error: $nowfile");
 		eval "flock(DAT, 2);";
 		$top = <DAT>;
 
-		# ˜A‘±“ŠeIPƒ`ƒFƒbƒN
+		# é€£ç¶šæŠ•ç¨¿IPãƒã‚§ãƒƒã‚¯
 		local($no,$ho,$t) = split(/<>/, $top);
 		if ($host eq $ho && $wait > time - $t) {
 			close(DAT);
-			&error("˜A‘±“Še‚Í‚à‚¤‚µ‚Î‚ç‚­ŠÔ‚ğ‚¨‚¢‚Ä‰º‚³‚¢");
+			&error("é€£ç¶šæŠ•ç¨¿ã¯ã‚‚ã†ã—ã°ã‚‰ãæ™‚é–“ã‚’ãŠã„ã¦ä¸‹ã•ã„");
 		}
 		$new = $no + 1;
 
-		# index“WŠJ
+		# indexå±•é–‹
 		while(<DAT>) {
 			local($sub,$key) = (split(/<>/))[1,6];
 
 			$i++;
 
-			# ƒXƒŒƒbƒh–¼d•¡
+			# ã‚¹ãƒ¬ãƒƒãƒ‰åé‡è¤‡
 			if ($sub eq $in{'sub'}) {
 				$flg++;
 				last;
@@ -130,33 +130,33 @@ sub regist {
 				next;
 			}
 
-			# ‹K’è”ƒI[ƒo[‚Í@tmp‘ã“ü
+			# è¦å®šæ•°ã‚ªãƒ¼ãƒãƒ¼ã¯@tmpä»£å…¥
 			if ($i >= $i_max) {
 				push(@tmp,$_);
 
-			# ‹K’è”“à‚Í@new‘ã“ü
+			# è¦å®šæ•°å†…ã¯@newä»£å…¥
 			} else {
 				push(@new,$_);
 			}
 		}
 
-		# ƒXƒŒƒbƒh–¼d•¡‚ÍƒGƒ‰[
+		# ã‚¹ãƒ¬ãƒƒãƒ‰åé‡è¤‡ã¯ã‚¨ãƒ©ãƒ¼
 		if ($flg) {
 			close(DAT);
-			&error("<b>u$in{'sub'}v</b>‚ÍŠù‘¶ƒXƒŒƒbƒh‚Æd•¡‚µ‚Ä‚¢‚Ü‚·B<br>•Ê‚ÌƒXƒŒƒbƒh–¼‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢");
+			&error("<b>ã€Œ$in{'sub'}ã€</b>ã¯æ—¢å­˜ã‚¹ãƒ¬ãƒƒãƒ‰ã¨é‡è¤‡ã—ã¦ã„ã¾ã™ã€‚<br>åˆ¥ã®ã‚¹ãƒ¬ãƒƒãƒ‰åã‚’æŒ‡å®šã—ã¦ãã ã•ã„");
 		}
 
-		# ƒtƒ@ƒCƒ‹ƒAƒbƒv
+		# ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ãƒƒãƒ—
 		local($upl_flg, %ex, %w ,%h);
 		if ($image_upl && ($in{'upfile1'} || $in{'upfile2'} || $in{'upfile3'})) {
 			require $upload;
 			($ex{1},$w{1},$h{1},$ex{2},$w{2},$h{2},$ex{3},$w{3},$h{3}) = &upload($time);
 
-			# ‰æ‘œƒAƒbƒv‚Ì‚Æ‚«‚Íƒtƒ‰ƒO‚ğ—§‚Ä‚é
+			# ç”»åƒã‚¢ãƒƒãƒ—ã®ã¨ãã¯ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
 			if ($ex{1} || $ex{2} || $ex{3}) { $upl_flg = $time; }
 		}
 
-		# Œ»sindexXV
+		# ç¾è¡Œindexæ›´æ–°
 		unshift(@new,"$new<>$i_sub<>0<>$i_nam2<>$date<>$i_nam2<>1<>$upl_flg<>\n");
 		unshift(@new,@top) if (@top > 0);
 		unshift(@new,"$new<>$host<>$time<>\n");
@@ -165,7 +165,7 @@ sub regist {
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-		# ‰ß‹indexXV
+		# éå»indexæ›´æ–°
 		if (@tmp > 0) {
 
 			$i = @tmp;
@@ -183,7 +183,7 @@ sub regist {
 
 					local($no,$sub,$nam,$eml,$com,$dat,$ho,$pw,$url,$mvw,$myid,$tim,$upl{1},$upl{2},$upl{3}) = split(/<>/, $log);
 
-					# ‰æ‘œ‚Ííœ
+					# ç”»åƒã¯å‰Šé™¤
 					foreach $i (1 .. 3) {
 						my ($ex,$w,$h) = split(/,/, $upl{$i});
 						if ($ex) { unlink("$upldir/$tim-$i$ex"); }
@@ -201,27 +201,27 @@ sub regist {
 			close(DAT);
 		}
 
-		# ƒXƒŒƒbƒhXV
+		# ã‚¹ãƒ¬ãƒƒãƒ‰æ›´æ–°
 		open(OUT,"+> $logdir/$new.cgi") || &error("Write Error: $new.cgi");
 		print OUT "$new<>$i_sub<>0<>1<>\n";
 		print OUT "0<>$in{'sub'}<>$i_nam2<>$in{'email'}<>$i_com<>$date<>$host<>$pwd<>$in{'url'}<>$in{'mvw'}<>$my_id<>$time<>$ex{1},$w{1},$h{1}<>$ex{2},$w{2},$h{2}<>$ex{3},$w{3},$h{3}<>\n";
 		close(OUT);
 
-		# QÆƒtƒ@ƒCƒ‹¶¬
+		# å‚ç…§ãƒ•ã‚¡ã‚¤ãƒ«ç”Ÿæˆ
 		open(NO,"+> $logdir/$new.dat") || &error("Write Error: $new.dat");
 		print NO "0:";
 		close(NO);
 
-		# ƒp[ƒ~ƒbƒVƒ‡ƒ“•ÏX
+		# ãƒ‘ãƒ¼ãƒŸãƒƒã‚·ãƒ§ãƒ³å¤‰æ›´
 		chmod(0666, "$logdir/$new.cgi");
 		chmod(0666, "$logdir/$new.dat");
 
 		&sendmail if ($mailing);
 
-	# •ÔM“Še
+	# è¿”ä¿¡æŠ•ç¨¿
 	} else {
 
-		# QÆƒtƒ@ƒCƒ‹
+		# å‚ç…§ãƒ•ã‚¡ã‚¤ãƒ«
 		local($data);
 		open(IN,"$logdir/$in{'res'}.dat");
 		$data = <IN>;
@@ -229,7 +229,7 @@ sub regist {
 
 		($count) = split(/:/, $data);
 
-		# ˜A‘±“Šeƒ`ƒFƒbƒN
+		# é€£ç¶šæŠ•ç¨¿ãƒã‚§ãƒƒã‚¯
 		local($top);
 		open(IN,"$nowfile") || &error("Open Error: $nowfile");
 		$top = <IN>;
@@ -237,37 +237,37 @@ sub regist {
 
 		local($no,$hos2,$tim2) = split(/<>/, $top);
 		if ($host eq $hos2 && $wait > time - $tim2) {
-			&error("˜A‘±“Še‚Í‚à‚¤‚µ‚Î‚ç‚­ŠÔ‚ğ‚¨‚¢‚Ä‰º‚³‚¢");
+			&error("é€£ç¶šæŠ•ç¨¿ã¯ã‚‚ã†ã—ã°ã‚‰ãæ™‚é–“ã‚’ãŠã„ã¦ä¸‹ã•ã„");
 		}
 
-		# ƒXƒŒƒbƒh“Ç‚İ‚İ
+		# ã‚¹ãƒ¬ãƒƒãƒ‰èª­ã¿è¾¼ã¿
 		open(DAT,"+< $logdir/$in{'res'}.cgi") || &error("Open Error: $in{'res'}.cgi");
 		eval "flock(DAT, 2);";
 		local(@file) = <DAT>;
 
-		# æ“ªƒtƒ@ƒCƒ‹‚ğ’ŠoE•ª‰ğ
+		# å…ˆé ­ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŠ½å‡ºãƒ»åˆ†è§£
 		$top = shift(@file);
 		local($no,$sub,$res,$key) = split(/<>/, $top);
 
-		# ƒƒbƒNƒ`ƒFƒbƒN
+		# ãƒ­ãƒƒã‚¯ãƒã‚§ãƒƒã‚¯
 		if ($key eq '0' || $key eq '2') {
 			close(DAT);
-			&error("‚±‚ÌƒXƒŒƒbƒh‚ÍƒƒbƒN’†‚Ì‚½‚ß•ÔM‚Å‚«‚Ü‚¹‚ñ");
+			&error("ã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã¯ãƒ­ãƒƒã‚¯ä¸­ã®ãŸã‚è¿”ä¿¡ã§ãã¾ã›ã‚“");
 		}
 
-		# ––”öƒtƒ@ƒCƒ‹‚ğ•ª‰ğAd•¡ƒ`ƒFƒbƒN
+		# æœ«å°¾ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆ†è§£ã€é‡è¤‡ãƒã‚§ãƒƒã‚¯
 		local($no2,$sb2,$na2,$em2,$co2) = split(/<>/, $file[$#file]);
-		if ($i_nam2 eq $na2 && $i_com eq $co2) { &error("d•¡“Še‚Í‹Ö~‚Å‚·"); }
+		if ($i_nam2 eq $na2 && $i_com eq $co2) { &error("é‡è¤‡æŠ•ç¨¿ã¯ç¦æ­¢ã§ã™"); }
 
-		# Ì”Ô
+		# æ¡ç•ª
 		$newno = $no2 + 1;
 
-		# ‹L–”ƒ`ƒFƒbƒN
-		if ($m_max < $res+1) { &error("Å‘å‹L–”‚ğƒI[ƒo[‚µ‚½‚½‚ß“Še‚Å‚«‚Ü‚¹‚ñ"); }
+		# è¨˜äº‹æ•°ãƒã‚§ãƒƒã‚¯
+		if ($m_max < $res+1) { &error("æœ€å¤§è¨˜äº‹æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ã—ãŸãŸã‚æŠ•ç¨¿ã§ãã¾ã›ã‚“"); }
 		elsif ($m_max == $res+1) { $maxflag = 1; }
 		else { $maxflag = 0; }
 
-		# ƒXƒŒƒbƒhXV
+		# ã‚¹ãƒ¬ãƒƒãƒ‰æ›´æ–°
 		$res++;
 		unshift(@file,"$no<>$sub<>$res<>1<>\n");
 		push(@file,"$newno<>$in{'sub'}<>$i_nam2<>$in{'email'}<>$i_com<>$date<>$host<>$pwd<>$in{'url'}<>$in{'mvw'}<>$my_id<>\n");
@@ -277,15 +277,15 @@ sub regist {
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-		## ‹K’è‹L–”ƒI[ƒo‚Ì‚Æ‚« ##
+		## è¦å®šè¨˜äº‹æ•°ã‚ªãƒ¼ãƒã®ã¨ã ##
 		if ($maxflag) {
 
-			# ‰ß‹ƒƒOindex“Ç‚İ‚İ
+			# éå»ãƒ­ã‚°indexèª­ã¿è¾¼ã¿
 			open(BAK,"+< $pastfile") || &error("Open Error: $pastfile");
 			eval "flock(BAK, 2);";
 			local(@file) = <BAK>;
 
-			# Œ»sƒƒOindex‚©‚çŠY“–ƒXƒŒƒbƒh”²‚«o‚µ
+			# ç¾è¡Œãƒ­ã‚°indexã‹ã‚‰è©²å½“ã‚¹ãƒ¬ãƒƒãƒ‰æŠœãå‡ºã—
 			local($top, @new);
 			open(DAT,"+< $nowfile") || &error("Open Error: $nowfile");
 			eval "flock(DAT, 2);";
@@ -302,23 +302,23 @@ sub regist {
 				push(@new,"$_\n");
 			}
 
-			# Œ»sƒƒOindexXV
+			# ç¾è¡Œãƒ­ã‚°indexæ›´æ–°
 			unshift(@new,$top);
 			seek(DAT, 0, 0);
 			print DAT @new;
 			truncate(DAT, tell(DAT));
 			close(DAT);
 
-			# ‰ß‹ƒƒOindexXV
+			# éå»ãƒ­ã‚°indexæ›´æ–°
 			seek(BAK, 0, 0);
 			print BAK @file;
 			truncate(BAK, tell(BAK));
 			close(BAK);
 
-		## ƒ\[ƒg‚ ‚è ##
+		## ã‚½ãƒ¼ãƒˆã‚ã‚Š ##
 		} elsif ($in{'sort'} == 1) {
 
-			# indexƒtƒ@ƒCƒ‹XV
+			# indexãƒ•ã‚¡ã‚¤ãƒ«æ›´æ–°
 			local($flg, $top, @new, @top);
 			open(DAT,"+< $nowfile") || &error("Open Error: $nowfile");
 			eval "flock(DAT, 2);";
@@ -340,7 +340,7 @@ sub regist {
 			}
 
 			if (!$flg) {
-				&error("ŠY“–‚ÌƒXƒŒƒbƒh‚ªindexƒtƒ@ƒCƒ‹‚ÉŒ©“–‚½‚è‚Ü‚¹‚ñ");
+				&error("è©²å½“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ãŒindexãƒ•ã‚¡ã‚¤ãƒ«ã«è¦‹å½“ãŸã‚Šã¾ã›ã‚“");
 			}
 
 			local($no2,$host2,$time2) = split(/<>/, $top);
@@ -353,10 +353,10 @@ sub regist {
 			truncate(DAT, tell(DAT));
 			close(DAT);
 
-		## ƒ\[ƒg‚È‚µ ##
+		## ã‚½ãƒ¼ãƒˆãªã— ##
 		} else {
 
-			# indexƒtƒ@ƒCƒ‹XV
+			# indexãƒ•ã‚¡ã‚¤ãƒ«æ›´æ–°
 			local($flg, $top, @new);
 			open(DAT,"+< $nowfile") || &error("Open Error: $nowfile");
 			eval "flock(DAT, 2);";
@@ -372,7 +372,7 @@ sub regist {
 			}
 
 			if (!$flg) {
-				&error("ŠY“–‚ÌƒXƒŒƒbƒh‚ªindexƒtƒ@ƒCƒ‹‚ÉŒ©“–‚½‚è‚Ü‚¹‚ñ");
+				&error("è©²å½“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ãŒindexãƒ•ã‚¡ã‚¤ãƒ«ã«è¦‹å½“ãŸã‚Šã¾ã›ã‚“");
 			}
 
 			local($no2,$host2,$time2) = split(/<>/, $top);
@@ -384,16 +384,16 @@ sub regist {
 			close(DAT);
 		}
 
-		# ƒ[ƒ‹‘—M
+		# ãƒ¡ãƒ¼ãƒ«é€ä¿¡
 		&sendmail if ($mailing == 2);
 	}
 
-	# ƒNƒbƒL[‚ğŠi”[
+	# ã‚¯ãƒƒã‚­ãƒ¼ã‚’æ ¼ç´
 	if ($in{'cook'} eq "on") {
 		&set_cookie($i_nam,$in{'email'},$in{'pwd'},$in{'url'},$in{'mvw'});
 	}
 
-	# Š®—¹ƒƒbƒZ[ƒW
+	# å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	&header;
 	$md = 'view';
 	if ($in{'res'} eq "") { $no = $new; }
@@ -406,7 +406,7 @@ sub regist {
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col2">
   <td bgcolor="$col2" nowrap align="center" height="60">
-	<h3 style="font-size:15px">‚²“Še‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚µ‚½</h3>
+	<h3 style="font-size:15px">ã”æŠ•ç¨¿ã‚ã‚ŠãŒã¨ã†ã”ã–ã„ã¾ã—ãŸ</h3>
   </td>
 </tr>
 </table>
@@ -414,25 +414,25 @@ sub regist {
 <p>
 EOM
 
-	# ‰ß‹ƒƒOŒJ‚è‰z‚µ‚Ìê‡
+	# éå»ãƒ­ã‚°ç¹°ã‚Šè¶Šã—ã®å ´åˆ
 	if ($maxflag) {
-		print "‚½‚¾‚µ‚PƒXƒŒƒbƒh“–‚è‚ÌÅ‘å‹L–”‚ğ’´‚¦‚½‚½‚ßA<br>\n";
-		print "‚±‚ÌƒXƒŒƒbƒh‚Í <a href=\"$readcgi?mode=past\">‰ß‹ƒƒO</a> ";
-		print "‚ÖˆÚ“®‚µ‚Ü‚µ‚½B\n";
+		print "ãŸã ã—ï¼‘ã‚¹ãƒ¬ãƒƒãƒ‰å½“ã‚Šã®æœ€å¤§è¨˜äº‹æ•°ã‚’è¶…ãˆãŸãŸã‚ã€<br>\n";
+		print "ã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã¯ <a href=\"$readcgi?mode=past\">éå»ãƒ­ã‚°</a> ";
+		print "ã¸ç§»å‹•ã—ã¾ã—ãŸã€‚\n";
 		$md = 'past';
 	}
 
-	# –ß‚èƒtƒH[ƒ€
+	# æˆ»ã‚Šãƒ•ã‚©ãƒ¼ãƒ 
 	print <<"EOM";
 <table><tr><td valign="top">
 <form action="$bbscgi">
-<input type="submit" value="Œf¦”Â‚Ö–ß‚é">
+<input type="submit" value="æ²ç¤ºæ¿ã¸æˆ»ã‚‹">
 </form></td><td width="15"></td>
 <td valign="top">
 <form action="$readcgi" method="post">
 <input type="hidden" name="mode" value="$md">
 <input type="hidden" name="no" value="$no">
-<input type="submit" value="ƒXƒŒƒbƒh‚ğŒ©‚é">
+<input type="submit" value="ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’è¦‹ã‚‹">
 </form></td>
 </tr>
 </table>
@@ -444,18 +444,18 @@ EOM
 }
 
 #-------------------------------------------------
-#  ‹L–íœ
+#  è¨˜äº‹å‰Šé™¤
 #-------------------------------------------------
 sub delete {
-	# ‰˜õƒ`ƒFƒbƒN
+	# æ±šæŸ“ãƒã‚§ãƒƒã‚¯
 	$in{'f'}  =~ s/\D//g;
 	$in{'no'} =~ s/\D//g;
 
-	# íœˆ—
+	# å‰Šé™¤å‡¦ç†
 	if ($in{'job'} eq "del") {
-		if ($in{'pwd'} eq '') { &error("ƒpƒXƒ[ƒh‚Ì“ü—Íƒ‚ƒŒ‚Å‚·"); }
+		if ($in{'pwd'} eq '') { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®å…¥åŠ›ãƒ¢ãƒ¬ã§ã™"); }
 
-		# ƒXƒŒƒbƒh‚æ‚èíœ‹L–’Šo
+		# ã‚¹ãƒ¬ãƒƒãƒ‰ã‚ˆã‚Šå‰Šé™¤è¨˜äº‹æŠ½å‡º
 		local($flg,$top,$check,$last_nam,$last_dat,@new);
 		open(DAT,"+< $logdir/$in{'f'}.cgi") || &error("Open Error: $in{'f'}.cgi");
 		eval "flock(DAT, 2);";
@@ -466,15 +466,15 @@ sub delete {
 			if ($in{'no'} == $no) {
 				$flg = 1;
 
-				# ƒpƒXÆ‡
+				# ãƒ‘ã‚¹ç…§åˆ
 				$check = &decrypt($in{'pwd'}, $pw);
 
-				# ƒXƒŒƒbƒhƒwƒbƒ_‚ÌƒŒƒXŒÂ”‚ğ’²®
+				# ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ˜ãƒƒãƒ€ã®ãƒ¬ã‚¹å€‹æ•°ã‚’èª¿æ•´
 				local($num,$sub2,$res,$key) = split(/<>/, $top);
 				$res--;
 				$top = "$num<>$sub2<>$res<>$key<>\n";
 
-				# ‰æ‘œíœ
+				# ç”»åƒå‰Šé™¤
 				foreach $i (1 .. 3) {
 					next if (!$upl{$i});
 
@@ -484,27 +484,27 @@ sub delete {
 					}
 				}
 
-				# ƒXƒLƒbƒv
+				# ã‚¹ã‚­ãƒƒãƒ—
 				next;
 			}
 			push(@new,$_);
 
-			# ÅI‹L–‚Ì“ŠeÒ‚ÆŠÔ‚ğŠo‚¦‚Ä‚¨‚­
+			# æœ€çµ‚è¨˜äº‹ã®æŠ•ç¨¿è€…ã¨æ™‚é–“ã‚’è¦šãˆã¦ãŠã
 			$last_nam = $nam;
 			$last_dat = $dat;
 		}
 
-		if (!$flg) { &error("ŠY“–‹L–‚ªŒ©“–‚½‚è‚Ü‚¹‚ñ"); }
-		if (!$check) { &error("ƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·"); }
+		if (!$flg) { &error("è©²å½“è¨˜äº‹ãŒè¦‹å½“ãŸã‚Šã¾ã›ã‚“"); }
+		if (!$check) { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™"); }
 
-		# ƒXƒŒƒbƒhXV
+		# ã‚¹ãƒ¬ãƒƒãƒ‰æ›´æ–°
 		unshift(@new,$top);
 		seek(DAT, 0, 0);
 		print DAT @new;
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-		# index“WŠJ
+		# indexå±•é–‹
 		@new = ();
 		local($top, @sort, @top);
 		open(DAT,"+< $nowfile") || &error("Open Error: $nowfile");
@@ -519,7 +519,7 @@ sub delete {
 				next;
 			}
 			if ($in{'f'} == $no) {
-				# index‚ÌƒŒƒXŒÂ”‚ğ’²®‚µAÅI“ŠeÒ‚ÆŠÔ‚ğ’uŠ·
+				# indexã®ãƒ¬ã‚¹å€‹æ•°ã‚’èª¿æ•´ã—ã€æœ€çµ‚æŠ•ç¨¿è€…ã¨æ™‚é–“ã‚’ç½®æ›
 				$res--;
 				$na2 = $last_nam;
 				$dat = $last_dat;
@@ -527,15 +527,15 @@ sub delete {
 			}
 			push(@new,"$_\n");
 
-			# ƒ\[ƒg—p”z—ñ
+			# ã‚½ãƒ¼ãƒˆç”¨é…åˆ—
 			$dat =~ s/\D//g;
 			push(@sort,$dat);
 		}
 
-		# “Še‡‚Éƒ\[ƒg
+		# æŠ•ç¨¿é †ã«ã‚½ãƒ¼ãƒˆ
 		@new = @new[sort {$sort[$b] <=> $sort[$a]} 0 .. $#sort];
 
-		# indexXV
+		# indexæ›´æ–°
 		unshift(@new,@top) if (@top > 0);
 		unshift(@new,$top);
 		seek(DAT, 0, 0);
@@ -543,17 +543,17 @@ sub delete {
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-		# Š®—¹ƒƒbƒZ[ƒW
+		# å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		&header;
 		print "<div align=\"center\">\n";
-		print "<b>‹L–‚Í³í‚Éíœ‚³‚ê‚Ü‚µ‚½B</b>\n";
+		print "<b>è¨˜äº‹ã¯æ­£å¸¸ã«å‰Šé™¤ã•ã‚Œã¾ã—ãŸã€‚</b>\n";
 		print "<form action=\"$bbscgi\">\n";
-		print "<input type=\"submit\" value=\"Œf¦”Â‚Ö–ß‚é\"></form>\n";
+		print "<input type=\"submit\" value=\"æ²ç¤ºæ¿ã¸æˆ»ã‚‹\"></form>\n";
 		print "</div></body></html>\n";
 		exit;
 	}
 
-	# ŠY“–ƒƒOƒ`ƒFƒbƒN
+	# è©²å½“ãƒ­ã‚°ãƒã‚§ãƒƒã‚¯
 	local($flg,$top,$no,$sub,$nam,$eml,$com,$dat,$ho,$pw);
 	open(IN,"$logdir/$in{'f'}.cgi");
 	$top = <IN>;
@@ -565,7 +565,7 @@ sub delete {
 	close(IN);
 
 	if ($pw eq "") {
-		&error("ŠY“–‹L–‚ÍƒpƒXƒ[ƒh‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢‚½‚ß<br>íœ‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñ");
+		&error("è©²å½“è¨˜äº‹ã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ãŸã‚<br>å‰Šé™¤ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“");
 	}
 
 	&header;
@@ -576,9 +576,9 @@ sub delete {
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col3"><td bgcolor="$col3" nowrap width="92%">
 <img src="$imgurl/trash.gif" align="top">
-&nbsp; <b>‹L–íœƒtƒH[ƒ€</b></td>
+&nbsp; <b>è¨˜äº‹å‰Šé™¤ãƒ•ã‚©ãƒ¼ãƒ </b></td>
 <td align="right" bgcolor="$col3" nowrap>
-<a href="javascript:history.back()">‘O‰æ–Ê‚É–ß‚é</a></td>
+<a href="javascript:history.back()">å‰ç”»é¢ã«æˆ»ã‚‹</a></td>
 </tr></table></Td></Tr></Table>
 <P>
 <form action="$registcgi" method="post">
@@ -590,14 +590,14 @@ sub delete {
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col2">
-  <td bgcolor="$col2" width="80" nowrap>íœ‹L–</td>
-  <td>‹L–F No.<b>$in{'no'}</b><br>Œ–¼F <b>$sub</b><br>–¼‘OF <b>$nam</b>
+  <td bgcolor="$col2" width="80" nowrap>å‰Šé™¤è¨˜äº‹</td>
+  <td>è¨˜äº‹ï¼š No.<b>$in{'no'}</b><br>ä»¶åï¼š <b>$sub</b><br>åå‰ï¼š <b>$nam</b>
   </td>
 </tr>
 <tr bgcolor="$col2">
-  <td bgcolor="$col2" width="80" nowrap>ƒpƒXƒ[ƒh</td>
+  <td bgcolor="$col2" width="80" nowrap>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</td>
   <td><input type="password" name="pwd" size="8" maxlength="8">
-	<input type="submit" value="‹L–‚ğíœ">
+	<input type="submit" value="è¨˜äº‹ã‚’å‰Šé™¤">
   </td></form>
 </tr>
 </table></Td></Tr></Table>
@@ -609,26 +609,26 @@ EOM
 }
 
 #-------------------------------------------------
-#  ƒƒ“ƒeˆ—
+#  ãƒ¡ãƒ³ãƒ†å‡¦ç†
 #-------------------------------------------------
 sub mente {
-	# ‰˜õƒ`ƒFƒbƒN
+	# æ±šæŸ“ãƒã‚§ãƒƒã‚¯
 	$in{'f'}  =~ s/\D//g;
 	$in{'no'} =~ s/\D//g;
 
-	# ‹L–C³
+	# è¨˜äº‹ä¿®æ­£
 	if ($in{'job'} eq "edit") {
-		if ($in{'pwd'} eq '') { &error("ƒpƒXƒ[ƒh‚Ì“ü—Íƒ‚ƒŒ‚Å‚·"); }
+		if ($in{'pwd'} eq '') { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®å…¥åŠ›ãƒ¢ãƒ¬ã§ã™"); }
 
 		require $editlog;
 		&edit_log("user");
 
-	# íœˆ—
+	# å‰Šé™¤å‡¦ç†
 	} elsif ($in{'job'} eq "del") {
 
-		if ($in{'pwd'} eq '') { &error("ƒpƒXƒ[ƒh‚Ì“ü—Íƒ‚ƒŒ‚Å‚·"); }
+		if ($in{'pwd'} eq '') { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®å…¥åŠ›ãƒ¢ãƒ¬ã§ã™"); }
 
-		# ƒXƒŒƒbƒh‚æ‚èíœ‹L–’Šo
+		# ã‚¹ãƒ¬ãƒƒãƒ‰ã‚ˆã‚Šå‰Šé™¤è¨˜äº‹æŠ½å‡º
 		local($flg, $top, @new);
 		open(DAT,"+< $logdir/$in{'f'}.cgi") || &error("Open Error: $in{'f'}.cgi");
 		eval "flock(DAT, 2);";
@@ -639,15 +639,15 @@ sub mente {
 			if ($in{'no'} == $no) {
 				$flg = 1;
 
-				# ƒpƒXÆ‡
+				# ãƒ‘ã‚¹ç…§åˆ
 				$check = &decrypt($in{'pwd'}, $pw);
 
-				# ƒXƒŒƒbƒhƒwƒbƒ_‚ÌƒŒƒXŒÂ”‚ğ’²®
+				# ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ˜ãƒƒãƒ€ã®ãƒ¬ã‚¹å€‹æ•°ã‚’èª¿æ•´
 				($num,$sub2,$res,$key) = split(/<>/, $top);
 				$res--;
 				$top = "$num<>$sub2<>$res<>$key<>\n";
 
-				# “Y•tíœ
+				# æ·»ä»˜å‰Šé™¤
 				foreach $i (1 .. 3) {
 					next if (!$upl{$i});
 
@@ -657,27 +657,27 @@ sub mente {
 					}
 				}
 
-				# ƒXƒLƒbƒv
+				# ã‚¹ã‚­ãƒƒãƒ—
 				next;
 			}
 			push(@new,$_);
 
-			# ÅI‹L–‚Ì“ŠeÒ‚ÆŠÔ‚ğŠo‚¦‚Ä‚¨‚­
+			# æœ€çµ‚è¨˜äº‹ã®æŠ•ç¨¿è€…ã¨æ™‚é–“ã‚’è¦šãˆã¦ãŠã
 			$last_nam = $nam;
 			$last_dat = $dat;
 		}
 
-		if (!$flg) { &error("ŠY“–‹L–‚ªŒ©“–‚½‚è‚Ü‚¹‚ñ"); }
-		if (!$check) { &error("ƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·"); }
+		if (!$flg) { &error("è©²å½“è¨˜äº‹ãŒè¦‹å½“ãŸã‚Šã¾ã›ã‚“"); }
+		if (!$check) { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™"); }
 
-		# ƒXƒŒƒbƒhXV
+		# ã‚¹ãƒ¬ãƒƒãƒ‰æ›´æ–°
 		unshift(@new,$top);
 		seek(DAT, 0, 0);
 		print DAT @new;
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-		# index“WŠJ
+		# indexå±•é–‹
 		@new = (); @sort = (); @top = ();
 		open(DAT,"+< $nowfile") || &error("Open Error: $nowfile");
 		eval "flock(DAT, 2);";
@@ -691,7 +691,7 @@ sub mente {
 				next;
 			}
 			if ($in{'f'} == $no) {
-				# index‚ÌƒŒƒXŒÂ”‚ğ’²®‚µAÅI“ŠeÒ‚ÆŠÔ‚ğ’uŠ·
+				# indexã®ãƒ¬ã‚¹å€‹æ•°ã‚’èª¿æ•´ã—ã€æœ€çµ‚æŠ•ç¨¿è€…ã¨æ™‚é–“ã‚’ç½®æ›
 				$res--;
 				$na2 = $last_nam;
 				$dat = $last_dat;
@@ -699,15 +699,15 @@ sub mente {
 			}
 			push(@new,"$_\n");
 
-			# ƒ\[ƒg—p”z—ñ
+			# ã‚½ãƒ¼ãƒˆç”¨é…åˆ—
 			$dat =~ s/\D//g;
 			push(@sort,$dat);
 		}
 
-		# “Še‡‚Éƒ\[ƒg
+		# æŠ•ç¨¿é †ã«ã‚½ãƒ¼ãƒˆ
 		@new = @new[sort {$sort[$b] <=> $sort[$a]} 0..$#sort];
 
-		# indexXV
+		# indexæ›´æ–°
 		unshift(@new,@top) if (@top > 0);
 		unshift(@new,$top);
 		seek(DAT, 0, 0);
@@ -715,19 +715,19 @@ sub mente {
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-		# Š®—¹ƒƒbƒZ[ƒW
+		# å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		&header;
 		print "<div align=\"center\">\n";
-		print "<b>‹L–‚Í³í‚Éíœ‚³‚ê‚Ü‚µ‚½B</b>\n";
+		print "<b>è¨˜äº‹ã¯æ­£å¸¸ã«å‰Šé™¤ã•ã‚Œã¾ã—ãŸã€‚</b>\n";
 		print "<form action=\"$bbscgi\">\n";
-		print "<input type=\"submit\" value=\"Œf¦”Â‚Ö–ß‚é\"></form>\n";
+		print "<input type=\"submit\" value=\"æ²ç¤ºæ¿ã¸æˆ»ã‚‹\"></form>\n";
 		print "</div></body></html>\n";
 		exit;
 
-	# ƒƒbƒNˆ—
+	# ãƒ­ãƒƒã‚¯å‡¦ç†
 	} elsif ($in{'job'} eq "lock") {
 
-		if ($in{'pwd'} eq '') { &error("ƒpƒXƒ[ƒh‚Ì“ü—Íƒ‚ƒŒ‚Å‚·"); }
+		if ($in{'pwd'} eq '') { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®å…¥åŠ›ãƒ¢ãƒ¬ã§ã™"); }
 
 		local($top);
 		open(DAT,"+< $logdir/$in{'f'}.cgi") || &error("Open Error: $in{'f'}.cgi");
@@ -736,11 +736,11 @@ sub mente {
 
 		$top = shift(@file);
 
-		# ƒpƒXƒ[ƒhƒ`ƒFƒbƒN
+		# ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯
 		local($no,$sb,$na,$em,$com,$da,$ho,$pw) = split(/<>/, $file[0]);
-		if (!&decrypt($in{'pwd'}, $pw)) { &error("ƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·"); }
+		if (!&decrypt($in{'pwd'}, $pw)) { &error("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™"); }
 
-		# XV
+		# æ›´æ–°
 		local($num,$sub,$res,$key) = split(/<>/, $top);
 
 		if ($key == 1) { $key = 0; }
@@ -752,7 +752,7 @@ sub mente {
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-		# index“WŠJ
+		# indexå±•é–‹
 		@new = ();
 		open(DAT,"+< $nowfile") || &error("Open Error: $nowfile");
 		eval "flock(DAT, 2);";
@@ -767,30 +767,30 @@ sub mente {
 			push(@new,"$_\n");
 		}
 
-		# indexXV
+		# indexæ›´æ–°
 		unshift(@new,$top);
 		seek(DAT, 0, 0);
 		print DAT @new;
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-		# Š®—¹ƒƒbƒZ[ƒW
+		# å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		&header;
 		print "<div align=\"center\">\n";
 
 		if ($key == 1) {
-			print "<b>ƒXƒŒƒbƒh‚ÍƒƒbƒN‰ğœ‚³‚ê‚Ü‚µ‚½B</b>\n";
+			print "<b>ã‚¹ãƒ¬ãƒƒãƒ‰ã¯ãƒ­ãƒƒã‚¯è§£é™¤ã•ã‚Œã¾ã—ãŸã€‚</b>\n";
 		} else {
-			print "<b>ƒXƒŒƒbƒh‚ÍƒƒbƒN‚³‚ê‚Ü‚µ‚½B</b>\n";
+			print "<b>ã‚¹ãƒ¬ãƒƒãƒ‰ã¯ãƒ­ãƒƒã‚¯ã•ã‚Œã¾ã—ãŸã€‚</b>\n";
 		}
 
 		print "<form action=\"$bbscgi\">\n";
-		print "<input type=\"submit\" value=\"Œf¦”Â‚Ö–ß‚é\"></form>\n";
+		print "<input type=\"submit\" value=\"æ²ç¤ºæ¿ã¸æˆ»ã‚‹\"></form>\n";
 		print "</div></body></html>\n";
 		exit;
 	}
 
-	# ŠY“–ƒƒOƒ`ƒFƒbƒN
+	# è©²å½“ãƒ­ã‚°ãƒã‚§ãƒƒã‚¯
 	$flg = 0;
 	open(IN,"$logdir/$in{'f'}.cgi");
 	$top = <IN>;
@@ -802,7 +802,7 @@ sub mente {
 	close(IN);
 
 	if ($pw eq "") {
-		&error("ŠY“–‹L–‚ÍƒpƒXƒ[ƒh‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+		&error("è©²å½“è¨˜äº‹ã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“");
 	}
 
 	($num,$sub2,$res,$key) = split(/<>/, $top);
@@ -815,9 +815,9 @@ sub mente {
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col3"><td bgcolor="$col3" nowrap width="92%">
 <img src="$imgurl/mente.gif" align="top">
-&nbsp; <b>ƒƒ“ƒeƒtƒH[ƒ€</b></td>
+&nbsp; <b>ãƒ¡ãƒ³ãƒ†ãƒ•ã‚©ãƒ¼ãƒ </b></td>
 <td align="right" bgcolor="$col3" nowrap>
-<a href="javascript:history.back()">‘O‰æ–Ê‚É–ß‚é</a></td>
+<a href="javascript:history.back()">å‰ç”»é¢ã«æˆ»ã‚‹</a></td>
 </tr></table></Td></Tr></Table>
 <P>
 <form action="$registcgi" method="post">
@@ -828,24 +828,24 @@ sub mente {
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col2">
-  <td bgcolor="$col2" width="75" nowrap>‘ÎÛƒXƒŒƒbƒh</td>
-  <td>Œ–¼F <b>$sub</b><br>–¼‘OF <b>$name</b>
+  <td bgcolor="$col2" width="75" nowrap>å¯¾è±¡ã‚¹ãƒ¬ãƒƒãƒ‰</td>
+  <td>ä»¶åï¼š <b>$sub</b><br>åå‰ï¼š <b>$name</b>
   </td>
 </tr>
 <tr bgcolor="$col2">
-  <td bgcolor="$col2" width="75" nowrap>ˆ—‘I‘ğ</td>
+  <td bgcolor="$col2" width="75" nowrap>å‡¦ç†é¸æŠ</td>
   <td><select name="job">
-	<option value="edit" selected>‹L–‚ğC³
+	<option value="edit" selected>è¨˜äº‹ã‚’ä¿®æ­£
 EOM
 
 	if ($in{'no'} eq "") {
 		if ($key == 1) {
-			print "<option value=\"lock\">ƒXƒŒƒbƒh‚ğƒƒbƒN\n";
+			print "<option value=\"lock\">ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ãƒ­ãƒƒã‚¯\n";
 		} elsif ($key == 0) {
-			print "<option value=\"lock\">ƒƒbƒN‚ğ‰ğœ\n";
+			print "<option value=\"lock\">ãƒ­ãƒƒã‚¯ã‚’è§£é™¤\n";
 		}
 	} else {
-		print "<option value=\"del\">‹L–‚ğíœ\n";
+		print "<option value=\"del\">è¨˜äº‹ã‚’å‰Šé™¤\n";
 	}
 
 	print <<"EOM";
@@ -853,9 +853,9 @@ EOM
   </td>
 </tr>
 <tr bgcolor="$col2">
-  <td bgcolor="$col2" width="75" nowrap>ƒpƒXƒ[ƒh</td>
+  <td bgcolor="$col2" width="75" nowrap>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</td>
   <td><input type="password" name="pwd" size="10" maxlength="8">
-	<input type="submit" value="‘—M‚·‚é">
+	<input type="submit" value="é€ä¿¡ã™ã‚‹">
   </td></form>
 </tr>
 </table>
@@ -868,7 +868,7 @@ EOM
 }
 
 #-------------------------------------------------
-#  ƒNƒbƒL[”­s
+#  ã‚¯ãƒƒã‚­ãƒ¼ç™ºè¡Œ
 #-------------------------------------------------
 sub set_cookie {
 	local(@cook) = @_;
@@ -878,63 +878,63 @@ sub set_cookie {
 	@m = ('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 	@w = ('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
 
-	# ‘Û•W€‚ğ’è‹`
+	# å›½éš›æ¨™æº–æ™‚ã‚’å®šç¾©
 	$gmt = sprintf("%s, %02d-%s-%04d %02d:%02d:%02d GMT",
 			$w[$t[6]], $t[3], $m[$t[4]], $t[5]+1900, $t[2], $t[1], $t[0]);
 
-	# •Û‘¶ƒf[ƒ^‚ğURLƒGƒ“ƒR[ƒh
+	# ä¿å­˜ãƒ‡ãƒ¼ã‚¿ã‚’URLã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰
 	foreach (@cook) {
 		s/(\W)/sprintf("%%%02X", unpack("C", $1))/eg;
 		$cook .= "$_<>";
 	}
 
-	# Ši”[
+	# æ ¼ç´
 	print "Set-Cookie: WEB_PATIO=$cook; expires=$gmt\n";
 }
 
 #-------------------------------------------------
-#  ƒ[ƒ‹‘—M
+#  ãƒ¡ãƒ¼ãƒ«é€ä¿¡
 #-------------------------------------------------
 sub sendmail {
 	local($msub, $mbody, $mcom, $email);
 
-	# ƒ[ƒ‹ƒ^ƒCƒgƒ‹‚ğ’è‹`
-	$msub = "$titleF $i_sub";
+	# ãƒ¡ãƒ¼ãƒ«ã‚¿ã‚¤ãƒˆãƒ«ã‚’å®šç¾©
+	$msub = "$titleï¼š $i_sub";
 
-	# –{•¶‚Ì‰üsEƒ^ƒO‚ğ•œŒ³
+	# æœ¬æ–‡ã®æ”¹è¡Œãƒ»ã‚¿ã‚°ã‚’å¾©å…ƒ
 	$mcom = $i_com;
 	$mcom =~ s/<br>/\n/g;
-	$mcom =~ s/&lt;/ƒ/g;
-	$mcom =~ s/&gt;/„/g;
-	$mcom =~ s/&quot;/h/g;
-	$mcom =~ s/&amp;/•/g;
+	$mcom =~ s/&lt;/ï¼œ/g;
+	$mcom =~ s/&gt;/ï¼/g;
+	$mcom =~ s/&quot;/â€/g;
+	$mcom =~ s/&amp;/ï¼†/g;
 
 $mbody = <<EOM;
 --------------------------------------------------------
-$title‚ÉˆÈ‰º‚Ì“Še‚ª‚ ‚è‚Ü‚µ‚½B
+$titleã«ä»¥ä¸‹ã®æŠ•ç¨¿ãŒã‚ã‚Šã¾ã—ãŸã€‚
 
-“Še“úF$date
-ƒzƒXƒg–¼F$host
-ƒuƒ‰ƒEƒUF$ENV{'HTTP_USER_AGENT'}
+æŠ•ç¨¿æ—¥æ™‚ï¼š$date
+ãƒ›ã‚¹ãƒˆåï¼š$host
+ãƒ–ãƒ©ã‚¦ã‚¶ï¼š$ENV{'HTTP_USER_AGENT'}
 
-‚¨‚È‚Ü‚¦F$i_nam2
-‚dƒ[ƒ‹F$in{'email'}
-ƒ^ƒCƒgƒ‹F$i_sub
-‚t‚q‚k  F$in{'url'}
+ãŠãªã¾ãˆï¼š$i_nam2
+ï¼¥ãƒ¡ãƒ¼ãƒ«ï¼š$in{'email'}
+ã‚¿ã‚¤ãƒˆãƒ«ï¼š$i_sub
+ï¼µï¼²ï¼¬  ï¼š$in{'url'}
 
 $mcom
 --------------------------------------------------------
 EOM
 
-	# ‘è–¼‚ğBASE64‰»
+	# é¡Œåã‚’BASE64åŒ–
 	$msub = &base64($msub);
 
-	# ƒ[ƒ‹ƒAƒhƒŒƒX‚ª‚È‚¢ê‡‚ÍŠÇ—ÒƒAƒhƒŒƒX‚É’u‚«Š·‚¦
+	# ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒãªã„å ´åˆã¯ç®¡ç†è€…ã‚¢ãƒ‰ãƒ¬ã‚¹ã«ç½®ãæ›ãˆ
 	if ($in{'email'} eq "") { $email = $mailto; }
 	else { $email = $in{'email'}; }
 
-	# sendmail‘—M
-	open(MAIL,"| $sendmail -t -i") || &error("‘—M¸”s");
+	# sendmailé€ä¿¡
+	open(MAIL,"| $sendmail -t -i") || &error("é€ä¿¡å¤±æ•—");
 	print MAIL "To: $mailto\n";
 	print MAIL "From: $email\n";
 	print MAIL "Subject: $msub\n";
@@ -950,10 +950,10 @@ EOM
 }
 
 #-------------------------------------------------
-#  BASE64•ÏŠ·
+#  BASE64å¤‰æ›
 #-------------------------------------------------
-#	‚Æ‚Ù‚Ù‚ÌWWW“ü–å‚ÅŒöŠJ‚³‚ê‚Ä‚¢‚éƒ‹[ƒ`ƒ“‚ğ
-#	Ql‚É‚µ‚Ü‚µ‚½B( http://tohoho.wakusei.ne.jp/ )
+#	ã¨ã»ã»ã®WWWå…¥é–€ã§å…¬é–‹ã•ã‚Œã¦ã„ã‚‹ãƒ«ãƒ¼ãƒãƒ³ã‚’
+#	å‚è€ƒã«ã—ã¾ã—ãŸã€‚( http://tohoho.wakusei.ne.jp/ )
 sub base64 {
 	local($sub) = @_;
 	&jcode'convert(*sub, 'jis', 'sjis');
@@ -978,12 +978,12 @@ sub b64enc {
 }
 
 #---------------------------------------
-#  ƒgƒŠƒbƒv‹@”\
+#  ãƒˆãƒªãƒƒãƒ—æ©Ÿèƒ½
 #---------------------------------------
 sub trip {
 	local($name) = @_;
 
-	$name =~ s/Ÿ//g;
+	$name =~ s/â—†/â—‡/g;
 
 	if ($i_nam =~ /#/) {
 		local($handle,$trip) = split(/#/, $name, 2);
@@ -991,14 +991,14 @@ sub trip {
 		local($enc) = crypt($trip, $trip_key) || crypt ($trip, '$1$' . $trip_key);
 		$enc =~ s/^..//;
 
-		return "$handleŸ$enc";
+		return "$handleâ—†$enc";
 	} else {
 		return $name;
 	}
 }
 
 #-------------------------------------------------
-#  ‹Ö~ƒ[ƒhƒ`ƒFƒbƒN
+#  ç¦æ­¢ãƒ¯ãƒ¼ãƒ‰ãƒã‚§ãƒƒã‚¯
 #-------------------------------------------------
 sub no_wd {
 	local($flg);
@@ -1007,11 +1007,11 @@ sub no_wd {
 			$flg = 1; last;
 		}
 	}
-	if ($flg) { &error("‹Ö~ƒ[ƒh‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·"); }
+	if ($flg) { &error("ç¦æ­¢ãƒ¯ãƒ¼ãƒ‰ãŒå«ã¾ã‚Œã¦ã„ã¾ã™"); }
 }
 
 #-------------------------------------------------
-#  “ú–{Œêƒ`ƒFƒbƒN
+#  æ—¥æœ¬èªãƒã‚§ãƒƒã‚¯
 #-------------------------------------------------
 sub jp_wd {
 	local($sub, $com, $mat1, $mat2, $code1, $code2);
@@ -1023,18 +1023,18 @@ sub jp_wd {
 	}
 	($mat2, $code2) = &jcode'getcode(*com);
 	if ($code1 ne 'sjis' && $code2 ne 'sjis') {
-		&error("‘è–¼–”‚ÍƒRƒƒ“ƒg‚É“ú–{Œê‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+		&error("é¡Œååˆã¯ã‚³ãƒ¡ãƒ³ãƒˆã«æ—¥æœ¬èªãŒå«ã¾ã‚Œã¦ã„ã¾ã›ã‚“");
 	}
 }
 
 #-------------------------------------------------
-#  URLŒÂ”ƒ`ƒFƒbƒN
+#  URLå€‹æ•°ãƒã‚§ãƒƒã‚¯
 #-------------------------------------------------
 sub urlnum {
 	local($com) = $i_com;
 	local($num) = ($com =~ s|(https?://)|$1|ig);
 	if ($num > $urlnum) {
-		&error("ƒRƒƒ“ƒg’†‚ÌURLƒAƒhƒŒƒX‚ÍÅ‘å$urlnumŒÂ‚Ü‚Å‚Å‚·");
+		&error("ã‚³ãƒ¡ãƒ³ãƒˆä¸­ã®URLã‚¢ãƒ‰ãƒ¬ã‚¹ã¯æœ€å¤§$urlnumå€‹ã¾ã§ã§ã™");
 	}
 }
 

@@ -1,33 +1,33 @@
 #!/usr/local/bin/perl
 
-#„¡„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
-#„  [ WebPatio ]
-#„  admin.cgi - 2007/05/06
-#„  Copyright (c) KentWeb
-#„  webmaster@kent-web.com
-#„  http://www.kent-web.com/
-#„¤„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
+#â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+#â”‚ [ WebPatio ]
+#â”‚ admin.cgi - 2007/05/06
+#â”‚ Copyright (c) KentWeb
+#â”‚ webmaster@kent-web.com
+#â”‚ http://www.kent-web.com/
+#â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-# ŠO•”ƒtƒ@ƒCƒ‹æ‚è‚İ
+# å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«å–ã‚Šè¾¼ã¿
 require '../scripts/init.cgi';
 require $jcode;
 
 &parse_form;
 if ($in{'pass'} eq "") { &enter; }
-elsif ($in{'pass'} ne $pass) { &error("”FØƒGƒ‰["); }
+elsif ($in{'pass'} ne $pass) { &error("èªè¨¼ã‚¨ãƒ©ãƒ¼"); }
 if ($in{'logfile'} || $in{'bakfile'}) { &file_mente; }
 elsif ($in{'filesize'}) { &filesize; }
 elsif ($in{'member'} && $authkey) { &member_mente; }
 &menu_disp;
 
 #-------------------------------------------------
-#  ƒƒOƒƒ“ƒe
+#  ãƒ­ã‚°ãƒ¡ãƒ³ãƒ†
 #-------------------------------------------------
 sub file_mente {
 	local($subject,$log,$top,$itop,$sub,$res,$nam,$em,$com,$da,$ho,$pw,$re,
 		$sb,$na2,$key,$last_nam,$last_dat,$del,@new,@new2,@sort,@file,@del,@top);
 
-	# ƒƒjƒ…[‚©‚ç‚Ìˆ—
+	# ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰ã®å‡¦ç†
 	if ($in{'job'} eq "menu") {
 		foreach ( keys(%in) ) {
 			if (/^past(\d+)/) {
@@ -37,28 +37,28 @@ sub file_mente {
 		}
 	}
 
-	# ‰˜õƒ`ƒFƒbƒN
+	# æ±šæŸ“ãƒã‚§ãƒƒã‚¯
 	$in{'no'} =~ s/[^0-9\0]//g;
 
-	# index’è‹`
+	# indexå®šç¾©
 	local($mylog);
 	if ($in{'bakfile'}) {
 		$log = $pastfile;
-		$subject = "‰ß‹ƒƒO";
+		$subject = "éå»ãƒ­ã‚°";
 		$mylog = "bakfile";
 	} else {
 		$log = $nowfile;
-		$subject = "Œ»sƒƒO";
+		$subject = "ç¾è¡Œãƒ­ã‚°";
 		$mylog = "logfile";
 	}
 
-	# ƒXƒŒƒbƒhˆêŠ‡íœ
+	# ã‚¹ãƒ¬ãƒƒãƒ‰ä¸€æ‹¬å‰Šé™¤
 	if ($in{'action'} eq "del" && $in{'no'} ne "") {
 
-		# íœî•ñ
+		# å‰Šé™¤æƒ…å ±
 		local(@del) = split(/\0/, $in{'no'});
 
-		# index‚æ‚èíœî•ñ’Šo
+		# indexã‚ˆã‚Šå‰Šé™¤æƒ…å ±æŠ½å‡º
 		local($top, @new);
 		open(DAT,"+< $log") || &error("Open Error: $log");
 		eval "flock(DAT, 2);";
@@ -69,12 +69,12 @@ sub file_mente {
 			foreach $del (@del) {
 				if ($del == $no) {
 
-					# ƒƒO“WŠJ
+					# ãƒ­ã‚°å±•é–‹
 					open(DB,"$logdir/$del.cgi");
 					while( $db = <DB> ) {
 						local($no,$sub,$nam,$eml,$com,$dat,$ho,$pw,$url,$mvw,$myid,$tim,$upl{1},$upl{2},$upl{3}) = split(/<>/, $db);
 
-						# ‰æ‘œíœ
+						# ç”»åƒå‰Šé™¤
 						foreach $i (1 .. 3) {
 							next if (!$upl{$i});
 
@@ -86,7 +86,7 @@ sub file_mente {
 					}
 					close(DB);
 
-					# ƒXƒŒƒbƒhíœ
+					# ã‚¹ãƒ¬ãƒƒãƒ‰å‰Šé™¤
 					unlink("$logdir/$del.cgi");
 					unlink("$logdir/$del.dat");
 					$flg = 1;
@@ -96,20 +96,20 @@ sub file_mente {
 			if (!$flg) { push(@new,$_); }
 		}
 
-		# indexXV
+		# indexæ›´æ–°
 		unshift(@new,$top);
 		seek(DAT, 0, 0);
 		print DAT @new;
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-	# ƒXƒŒƒbƒh‚ÌƒƒbƒNŠJ•Â
+	# ã‚¹ãƒ¬ãƒƒãƒ‰ã®ãƒ­ãƒƒã‚¯é–‹é–‰
 	} elsif ($in{'action'} eq "lock" && $in{'no'} ne "" && !$in{'past'}) {
 
-		# ƒƒbƒNî•ñ
+		# ãƒ­ãƒƒã‚¯æƒ…å ±
 		local(@lock) = split(/\0/, $in{'no'});
 
-		# ƒXƒŒƒbƒhƒwƒbƒ_î•ñXV
+		# ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ˜ãƒƒãƒ€æƒ…å ±æ›´æ–°
 		foreach (@lock) {
 
 			local($top,@file);
@@ -119,13 +119,13 @@ sub file_mente {
 
 			$top = shift(@file);
 
-			# æ“ª‹L–•ª‰ğAƒL[ŠJ•Â
+			# å…ˆé ­è¨˜äº‹åˆ†è§£ã€ã‚­ãƒ¼é–‹é–‰
 			local($num,$sub,$res,$key) = split(/<>/, $top);
 
-			# 0=ƒƒbƒN 1=•W€ 2=ŠÇ——p
+			# 0=ãƒ­ãƒƒã‚¯ 1=æ¨™æº– 2=ç®¡ç†ç”¨
 			if ($key eq '0') { $key = 1; } else { $key = 0; }
 
-			# ƒXƒŒƒbƒhXV
+			# ã‚¹ãƒ¬ãƒƒãƒ‰æ›´æ–°
 			unshift(@file,"$num<>$sub<>$res<>$key<>\n");
 			seek(DAT, 0, 0);
 			print DAT @file;
@@ -133,7 +133,7 @@ sub file_mente {
 			close(DAT);
 		}
 
-		# index“Ç‚İ‚İ
+		# indexèª­ã¿è¾¼ã¿
 		local($top,@new);
 		open(DAT,"+< $log") || &error("Open Error: $log");
 		eval "flock(DAT, 2);";
@@ -143,7 +143,7 @@ sub file_mente {
 			local($no,$sub,$res,$nam,$da,$na2,$key,$upl) = split(/<>/);
 
 			foreach $lock (@lock) {
-				# 0=ƒƒbƒN 1=•W€ 2=ŠÇ——p
+				# 0=ãƒ­ãƒƒã‚¯ 1=æ¨™æº– 2=ç®¡ç†ç”¨
 				if ($lock == $no) {
 					if ($key eq '0') { $key = 1; } else { $key = 0; }
 					$_ = "$no<>$sub<>$res<>$nam<>$da<>$na2<>$key<>$upl<>";
@@ -152,20 +152,20 @@ sub file_mente {
 			push(@new,"$_\n");
 		}
 
-		# indexXV
+		# indexæ›´æ–°
 		unshift(@new,$top);
 		seek(DAT, 0, 0);
 		print DAT @new;
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-	# ƒXƒŒƒbƒh‚ÌŠÇ—ÒƒRƒƒ“ƒgƒ‚[ƒh
+	# ã‚¹ãƒ¬ãƒƒãƒ‰ã®ç®¡ç†è€…ã‚³ãƒ¡ãƒ³ãƒˆãƒ¢ãƒ¼ãƒ‰
 	} elsif ($in{'action'} eq "lock2" && $in{'no'} ne "" && !$in{'past'}) {
 
-		# ƒƒbƒNî•ñ
+		# ãƒ­ãƒƒã‚¯æƒ…å ±
 		local(@lock) = split(/\0/, $in{'no'});
 
-		# ƒXƒŒƒbƒhƒwƒbƒ_î•ñXV
+		# ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ˜ãƒƒãƒ€æƒ…å ±æ›´æ–°
 		foreach (@lock) {
 
 			local($top, @file);
@@ -175,13 +175,13 @@ sub file_mente {
 
 			$top = shift(@file);
 
-			# æ“ª‹L–•ª‰ğAƒL[ŠJ•Â
+			# å…ˆé ­è¨˜äº‹åˆ†è§£ã€ã‚­ãƒ¼é–‹é–‰
 			local($num,$sub,$res,$key) = split(/<>/, $top);
 
-			# 0=ƒƒbƒN 1=•W€ 2=ŠÇ——p
+			# 0=ãƒ­ãƒƒã‚¯ 1=æ¨™æº– 2=ç®¡ç†ç”¨
 			if ($key < 2) { $key = 2; } else { $key = 1; }
 
-			# ƒXƒŒƒbƒhXV
+			# ã‚¹ãƒ¬ãƒƒãƒ‰æ›´æ–°
 			unshift(@file,"$num<>$sub<>$res<>$key<>\n");
 			seek(DAT, 0, 0);
 			print DAT @file;
@@ -189,7 +189,7 @@ sub file_mente {
 			close(DAT);
 		}
 
-		# index“Ç‚İ‚İ
+		# indexèª­ã¿è¾¼ã¿
 		local($top, $flg, @new, @top1, @top2);
 		open(DAT,"+< $log") || &error("Open Error: $log");
 		eval "flock(DAT, 2);";
@@ -201,7 +201,7 @@ sub file_mente {
 
 			foreach $lock (@lock) {
 				if ($lock == $no) {
-					# 0=ƒƒbƒN 1=•W€ 2=ŠÇ——p
+					# 0=ãƒ­ãƒƒã‚¯ 1=æ¨™æº– 2=ç®¡ç†ç”¨
 					if ($key == 2) {
 						$key = 1;
 						$_ = "$no<>$sub<>$res<>$nam<>$da<>$na2<>$key<>$upl<>";
@@ -222,7 +222,7 @@ sub file_mente {
 			}
 		}
 
-		# indexXV
+		# indexæ›´æ–°
 		unshift(@new,@top2) if (@top2 > 0);
 		unshift(@new,@top1) if (@top1 > 0);
 		unshift(@new,$top);
@@ -231,22 +231,22 @@ sub file_mente {
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-	# ƒXƒŒƒbƒh“àƒŒƒX‹L–‰{——
+	# ã‚¹ãƒ¬ãƒƒãƒ‰å†…ãƒ¬ã‚¹è¨˜äº‹é–²è¦§
 	} elsif ($in{'action'} eq "view" && $in{'no'} ne "") {
 
-		# ƒŒƒX‹L–ŒÂ•Êíœ
+		# ãƒ¬ã‚¹è¨˜äº‹å€‹åˆ¥å‰Šé™¤
 		if ($in{'job'} eq "del" && $in{'no2'} ne "") {
 
 			local($top,$num,$sub2,$res,$key,$flg,@del,@new);
 
 			if ($in{'no2'} =~ /\b0\b/) {
-				&error("e‹L–‚Ìíœ‚Í‚Å‚«‚Ü‚¹‚ñ");
+				&error("è¦ªè¨˜äº‹ã®å‰Šé™¤ã¯ã§ãã¾ã›ã‚“");
 			}
 
-			# íœî•ñ‚ğ”z—ñ‰»
+			# å‰Šé™¤æƒ…å ±ã‚’é…åˆ—åŒ–
 			@del = split(/\0/, $in{'no2'});
 
-			# ƒXƒŒƒbƒh“à‚æ‚èíœ‹L–‚ğ’Šo
+			# ã‚¹ãƒ¬ãƒƒãƒ‰å†…ã‚ˆã‚Šå‰Šé™¤è¨˜äº‹ã‚’æŠ½å‡º
 			local($top, @new);
 			open(DAT,"+< $logdir/$in{'no'}.cgi");
 			eval "flock(DAT, 2);";
@@ -259,7 +259,7 @@ sub file_mente {
 					if ($no == $del) {
 						$flg = 1;
 
-						# ‰æ‘œíœ
+						# ç”»åƒå‰Šé™¤
 						foreach $i (1 .. 3) {
 							next if (!$upl{$i});
 
@@ -275,24 +275,24 @@ sub file_mente {
 				if (!$flg) {
 					push(@new,$_);
 
-					# ÅI“ŠeÒ–¼‚ÆŠÔ‚ğŠo‚¦‚Ä‚¨‚­
+					# æœ€çµ‚æŠ•ç¨¿è€…åã¨æ™‚é–“ã‚’è¦šãˆã¦ãŠã
 					$last_nam = $nam;
 					$last_dat = $da;
 				}
 			}
 
-			# ƒŒƒXŒÂ”‚ğ’²®
+			# ãƒ¬ã‚¹å€‹æ•°ã‚’èª¿æ•´
 			$res -= @del;
 			$top = "$num<>$sub2<>$res<>$key<>\n";
 
-			# ƒXƒŒƒbƒhXV
+			# ã‚¹ãƒ¬ãƒƒãƒ‰æ›´æ–°
 			unshift(@new,$top);
 			seek(DAT, 0, 0);
 			print DAT @new;
 			truncate(DAT, tell(DAT));
 			close(DAT);
 
-			# index“à—e·‚µ‘Ö‚¦
+			# indexå†…å®¹å·®ã—æ›¿ãˆ
 			@new2 = (); @sort = (); @top = ();
 			open(DAT,"+< $log");
 			eval "flock(DAT, 2);";
@@ -306,22 +306,22 @@ sub file_mente {
 					next;
 				}
 				if ($in{'no'} == $no) {
-					# ƒŒƒXŒÂ”‚ÆÅI“ŠeÒ–¼‚ğ·‘Ö
+					# ãƒ¬ã‚¹å€‹æ•°ã¨æœ€çµ‚æŠ•ç¨¿è€…åã‚’å·®æ›¿
 					$na2 = $last_nam;
 					$da  = $last_dat;
 					$_ = "$no<>$sb<>$res<>$na<>$da<>$na2<>$key<>$upl<>";
 				}
 				push(@new2,"$_\n");
 
-				# ƒ\[ƒg—p”z—ñ
+				# ã‚½ãƒ¼ãƒˆç”¨é…åˆ—
 				$da =~ s/\D//g;
 				push(@sort,$da);
 			}
 
-			# “Še‡‚Éƒ\[ƒg
+			# æŠ•ç¨¿é †ã«ã‚½ãƒ¼ãƒˆ
 			@new2 = @new2[sort {$sort[$b] <=> $sort[$a]} 0 .. $#sort];
 
-			# indexXV
+			# indexæ›´æ–°
 			unshift(@new2,@top) if (@top > 0);
 			unshift(@new2,$top2) if ($in{'past'} == 0);
 			seek(DAT, 0, 0);
@@ -329,24 +329,24 @@ sub file_mente {
 			truncate(DAT, tell(DAT));
 			close(DAT);
 
-		# ƒŒƒX‹L–ŒÂ•ÊC³
+		# ãƒ¬ã‚¹è¨˜äº‹å€‹åˆ¥ä¿®æ­£
 		} elsif ($in{'job'} eq "edit" && $in{'no2'} ne "") {
 
-			# •¡”‘I‘ğ‚Ìê‡‚Íæ“ª‚Ì‚İ
+			# è¤‡æ•°é¸æŠã®å ´åˆã¯å…ˆé ­ã®ã¿
 			($in{'no2'}) = split(/\0/, $in{'no2'});
 
 			require $editlog;
 			&edit_log("admin");
 		}
 
-		# ƒXƒŒƒbƒh“àŒÂ•Ê‰{——
+		# ã‚¹ãƒ¬ãƒƒãƒ‰å†…å€‹åˆ¥é–²è¦§
 		&header;
 		print "<div align=\"right\">\n";
 		print "<form action=\"$admincgi\" method=\"post\">\n";
 		print "<input type=\"hidden\" name=\"pass\" value=\"$in{'pass'}\">\n";
 		print "<input type=\"hidden\" name=\"mode\" value=\"admin\">\n";
 		print "<input type=\"hidden\" name=\"$mylog\" value=\"1\">\n";
-		print "<input type=\"submit\" value=\"&lt;&lt; –ß‚é\"></form></div>\n";
+		print "<input type=\"submit\" value=\"&lt;&lt; æˆ»ã‚‹\"></form></div>\n";
 		print "<form action=\"$admincgi\" method=\"post\">\n";
 		print "<input type=\"hidden\" name=\"pass\" value=\"$in{'pass'}\">\n";
 		print "<input type=\"hidden\" name=\"mode\" value=\"admin\">\n";
@@ -358,13 +358,13 @@ sub file_mente {
 		$top = <IN>;
 		($num,$sub,$res) = split(/<>/, $top);
 
-		print "ƒXƒŒƒbƒh–¼ F <b>$sub</b> [ $subject ]<hr>\n";
-		print "<li>C³–”‚Ííœ‚ğ‘I‘ğ‚µ‚Ä‹L–‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B<br>\n";
-		print "<li>e‹L–‚Ìíœ‚Í‚Å‚«‚Ü‚¹‚ñB<br><br>\n";
-		print "ˆ— F <select name=\"job\">\n";
-		print "<option value=\"edit\" selected>C³\n";
-		print "<option value=\"del\">íœ</select>\n";
-		print "<input type=\"submit\" value=\"‘—M‚·‚é\">\n";
+		print "ã‚¹ãƒ¬ãƒƒãƒ‰å ï¼š <b>$sub</b> [ $subject ]<hr>\n";
+		print "<li>ä¿®æ­£åˆã¯å‰Šé™¤ã‚’é¸æŠã—ã¦è¨˜äº‹ã‚’ãƒã‚§ãƒƒã‚¯ã—ã¾ã™ã€‚<br>\n";
+		print "<li>è¦ªè¨˜äº‹ã®å‰Šé™¤ã¯ã§ãã¾ã›ã‚“ã€‚<br><br>\n";
+		print "å‡¦ç† ï¼š <select name=\"job\">\n";
+		print "<option value=\"edit\" selected>ä¿®æ­£\n";
+		print "<option value=\"del\">å‰Šé™¤</select>\n";
+		print "<input type=\"submit\" value=\"é€ä¿¡ã™ã‚‹\">\n";
 		print "<dl>\n";
 
 		while (<IN>) {
@@ -374,7 +374,7 @@ sub file_mente {
 
 			print "<dt><input type=\"checkbox\" name=\"no2\" value=\"$no\"> ";
 			print "[<b>$no</b>] <b>$nam</b> - $da ";
-			print "y<font color=\"$al\">$ho</font>z\n";
+			print "ã€<font color=\"$al\">$ho</font>ã€‘\n";
 
 			if ($authkey) { print "ID:$myid\n"; }
 
@@ -390,38 +390,38 @@ sub file_mente {
 	print <<"EOM";
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
-<input type="submit" value="&lt; ŠÇ—TOP">
+<input type="submit" value="&lt; ç®¡ç†TOP">
 </form>
-<h3 style="font-size:16px">ŠÇ—ƒ‚[ƒh [ $subject ]</h3>
+<h3 style="font-size:16px">ç®¡ç†ãƒ¢ãƒ¼ãƒ‰ [ $subject ]</h3>
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
 <input type="hidden" name="mode" value="admin">
 <input type="hidden" name="$mylog" value="1">
-ƒXƒŒƒbƒhˆ— <select name="action">
-<option value="view">ŒÂ•Êƒƒ“ƒe
-<option value="del">ƒXƒŒíœ
+ã‚¹ãƒ¬ãƒƒãƒ‰å‡¦ç† <select name="action">
+<option value="view">å€‹åˆ¥ãƒ¡ãƒ³ãƒ†
+<option value="del">ã‚¹ãƒ¬å‰Šé™¤
 EOM
 
 	if ($in{'past'} == 0) {
-		print "<option value=\"lock\">ƒƒbƒNŠJ•Â\n";
-		print "<option value=\"lock2\">ŠÇ—Ò\n";
+		print "<option value=\"lock\">ãƒ­ãƒƒã‚¯é–‹é–‰\n";
+		print "<option value=\"lock2\">ç®¡ç†è€…\n";
 	}
 
 	print <<EOM;
 </select>
-<input type="submit" value="‘—M‚·‚é">
+<input type="submit" value="é€ä¿¡ã™ã‚‹">
 <p>
 <Table border="0" cellspacing="0" cellpadding="0" width="400">
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="4" width="100%">
 <tr bgcolor="$col1">
-  <td bgcolor="$col3" align="center" nowrap>‘I‘ğ</td>
-  <td bgcolor="$col3" width="100%">&nbsp; ƒXƒŒƒbƒh</td>
-  <td bgcolor="$col3" align="center" nowrap>ƒŒƒX”</td>
+  <td bgcolor="$col3" align="center" nowrap>é¸æŠ</td>
+  <td bgcolor="$col3" width="100%">&nbsp; ã‚¹ãƒ¬ãƒƒãƒ‰</td>
+  <td bgcolor="$col3" align="center" nowrap>ãƒ¬ã‚¹æ•°</td>
 </tr>
 EOM
 
-	# ƒXƒŒƒbƒhˆê——
+	# ã‚¹ãƒ¬ãƒƒãƒ‰ä¸€è¦§
 	open(IN,"$log") || &error("Open Error: $log");
 	$top = <IN> if (!$in{'bakfile'});
 	while (<IN>) {
@@ -432,9 +432,9 @@ EOM
 		print "<td bgcolor=\"$col2\">";
 
 		if ($key eq '0') {
-			print "[<font color=\"$al\">ƒƒbƒN’†</font>] ";
+			print "[<font color=\"$al\">ãƒ­ãƒƒã‚¯ä¸­</font>] ";
 		} elsif ($key == 2) {
-			print "[<font color=\"$al\">ŠÇ—ƒRƒƒ“ƒg</font>] ";
+			print "[<font color=\"$al\">ç®¡ç†ã‚³ãƒ¡ãƒ³ãƒˆ</font>] ";
 		}
 
 		print "<b>$sub</b></td>";
@@ -454,12 +454,12 @@ EOM
 }
 
 #-------------------------------------------------
-#  ƒtƒ@ƒCƒ‹ƒTƒCƒY
+#  ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚º
 #-------------------------------------------------
 sub filesize {
 	local($top,$tmp,$num,$all,$all2,$size1,$size2,$size3,$size4,$file,$file1,$file2);
 
-	# Œ»sƒƒO
+	# ç¾è¡Œãƒ­ã‚°
 	$size1 = 0;
 	$file1 = 0;
 	open(IN,"$nowfile") || &error("Open Error: $nowfile");
@@ -474,7 +474,7 @@ sub filesize {
 	}
 	close(IN);
 
-	# ‰ß‹ƒƒO
+	# éå»ãƒ­ã‚°
 	$size2 = 0;
 	$file2 = 0;
 	open(IN,"$pastfile") || &error("Open Error: $pastfile");
@@ -488,7 +488,7 @@ sub filesize {
 	}
 	close(IN);
 
-	# ‰æ‘œ
+	# ç”»åƒ
 	opendir(DIR,"$upldir");
 	local(@dir) = readdir(DIR);
 	closedir(DIR);
@@ -510,12 +510,12 @@ sub filesize {
 	print <<"EOM";
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
-<input type="submit" value="&lt; ŠÇ—TOP">
+<input type="submit" value="&lt; ç®¡ç†TOP">
 </form>
-<h3 style="font-size:16px">ƒƒO—e—ÊZo</h3>
+<h3 style="font-size:16px">ãƒ­ã‚°å®¹é‡ç®—å‡º</h3>
 <ul>
-<li>ˆÈ‰º‚Í‹L˜^ƒtƒ@ƒCƒ‹‚Ì—e—ÊiƒTƒCƒYj‚ÅA¬”“_ˆÈ‰º‚ÍlÌŒÜ“ü‚µ‚Ü‚·B
-<li>•ª—Ş—“‚ÌƒtƒH[ƒ€‚ğƒNƒŠƒbƒN‚·‚é‚ÆŠeŠÇ—‰æ–Ê‚ÉˆÚ“®‚µ‚Ü‚·B
+<li>ä»¥ä¸‹ã¯è¨˜éŒ²ãƒ•ã‚¡ã‚¤ãƒ«ã®å®¹é‡ï¼ˆã‚µã‚¤ã‚ºï¼‰ã§ã€å°æ•°ç‚¹ä»¥ä¸‹ã¯å››æ¨äº”å…¥ã—ã¾ã™ã€‚
+<li>åˆ†é¡æ¬„ã®ãƒ•ã‚©ãƒ¼ãƒ ã‚’ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã¨å„ç®¡ç†ç”»é¢ã«ç§»å‹•ã—ã¾ã™ã€‚
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
 <p>
@@ -523,30 +523,30 @@ sub filesize {
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col1">
-  <td bgcolor="$col3" rowspan="2" align="center">•ª—Ş</td>
-  <td bgcolor="$col3" rowspan="2" width="70" align="center">ƒtƒ@ƒCƒ‹”</td>
-  <td bgcolor="$col3" colspan="2" align="center">ƒTƒCƒY</td>
+  <td bgcolor="$col3" rowspan="2" align="center">åˆ†é¡</td>
+  <td bgcolor="$col3" rowspan="2" width="70" align="center">ãƒ•ã‚¡ã‚¤ãƒ«æ•°</td>
+  <td bgcolor="$col3" colspan="2" align="center">ã‚µã‚¤ã‚º</td>
 </tr>
 <tr bgcolor="$col1">
-  <td bgcolor="$col3" align="center" width="50">ƒƒO</td>
-  <td bgcolor="$col3" align="center" width="50">‰æ‘œ</td>
+  <td bgcolor="$col3" align="center" width="50">ãƒ­ã‚°</td>
+  <td bgcolor="$col3" align="center" width="50">ç”»åƒ</td>
 </tr>
 <tr>
   <th bgcolor="$col2">
-   <input type="submit" name="logfile" value="Œ»sƒƒO"></th>
+   <input type="submit" name="logfile" value="ç¾è¡Œãƒ­ã‚°"></th>
   <td align="right" bgcolor="$col2">$file1</td>
   <td align="right" bgcolor="$col2">$size1 KB</td>
   <td align="right" bgcolor="$col2" rowspan="2">$img KB</td>
 </tr>
 <tr bgcolor="$col2">
   <th bgcolor="$col2">
-   <input type="submit" name="bakfile" value="‰ß‹ƒƒO"></th>
+   <input type="submit" name="bakfile" value="éå»ãƒ­ã‚°"></th>
   </th>
   <td align="right" bgcolor="$col2">$file2</td>
   <td align="right" bgcolor="$col2">$size2 KB</td>
 </tr>
 <tr bgcolor="$col2">
-  <th bgcolor="$col2">‡Œv</th>
+  <th bgcolor="$col2">åˆè¨ˆ</th>
   <td align="right" bgcolor="$col2">$file</td>
   <td align="right" bgcolor="$col2">$all KB</td>
   <td align="right" bgcolor="$col2">$img KB</td>
@@ -562,33 +562,33 @@ EOM
 }
 
 #-------------------------------------------------
-#  ‰ïˆõŠÇ—
+#  ä¼šå“¡ç®¡ç†
 #-------------------------------------------------
 sub member_mente {
-	# V‹KƒtƒH[ƒ€
+	# æ–°è¦ãƒ•ã‚©ãƒ¼ãƒ 
 	if ($in{'job'} eq "new") {
 
 		&member_form();
 
-	# V‹K”­s
+	# æ–°è¦ç™ºè¡Œ
 	} elsif ($in{'job'} eq "new2") {
 
 		local($err);
-		if (!$in{'name'}) { $err .= "–¼‘O‚ª–¢“ü—Í‚Å‚·<br>\n"; }
-		if ($in{'myid'} =~ /\W/) { $err .= "ID‚Í‰p”š‚Ì‚İ‚Å‚·<br>\n"; }
+		if (!$in{'name'}) { $err .= "åå‰ãŒæœªå…¥åŠ›ã§ã™<br>\n"; }
+		if ($in{'myid'} =~ /\W/) { $err .= "IDã¯è‹±æ•°å­—ã®ã¿ã§ã™<br>\n"; }
 		if (length($in{'myid'}) < 4 || length($in{'myid'}) > 8) {
-			$err .= "ID‚Í‰p”š‚Å4`8•¶š‚Å‚·<br>\n";
+			$err .= "IDã¯è‹±æ•°å­—ã§4ï½8æ–‡å­—ã§ã™<br>\n";
 		}
-		if ($in{'mypw'} =~ /\W/) { $err .= "ƒpƒXƒ[ƒh‚Í‰p”š‚Ì‚İ‚Å‚·<br>\n"; }
+		if ($in{'mypw'} =~ /\W/) { $err .= "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯è‹±æ•°å­—ã®ã¿ã§ã™<br>\n"; }
 		if (length($in{'mypw'}) < 4 || length($in{'mypw'}) > 8) {
-			$err .= "ƒpƒXƒ[ƒh‚Í‰p”š‚Å4`8•¶š‚Å‚·<br>\n";
+			$err .= "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯è‹±æ•°å­—ã§4ï½8æ–‡å­—ã§ã™<br>\n";
 		}
-		if (!$in{'rank'}) { $err .= "Œ ŒÀ‚ª–¢‘I‘ğ‚Å‚·<br>\n"; }
+		if (!$in{'rank'}) { $err .= "æ¨©é™ãŒæœªé¸æŠã§ã™<br>\n"; }
 		if ($err) { &error($err); }
 
 		local($flg,$crypt,$id,$pw,$rank,$nam,@data);
 
-		# IDƒ`ƒFƒbƒN
+		# IDãƒã‚§ãƒƒã‚¯
 		$flg = 0;
 		open(DAT,"+< $memfile") || &error("Open Error: $memfile");
 		while(<DAT>) {
@@ -598,22 +598,22 @@ sub member_mente {
 			push(@data,$_);
 		}
 
-		if ($flg) { &error("‚±‚ÌID‚ÍŠù‚É“o˜^Ï‚Å‚·"); }
+		if ($flg) { &error("ã“ã®IDã¯æ—¢ã«ç™»éŒ²æ¸ˆã§ã™"); }
 
-		# ƒpƒXˆÃ†‰»
+		# ãƒ‘ã‚¹æš—å·åŒ–
 		$crypt = &encrypt($in{'mypw'});
 
-		# XV
+		# æ›´æ–°
 		seek(DAT, 0, 0);
 		print DAT "$in{'myid'}<>$crypt<>$in{'rank'}<>$in{'name'}<>\n";
 		print DAT @data;
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-	# C³ƒtƒH[ƒ€
+	# ä¿®æ­£ãƒ•ã‚©ãƒ¼ãƒ 
 	} elsif ($in{'job'} eq "edit" && $in{'myid'}) {
 
-		if ($in{'myid'} =~ /\0/) { &error("C³‘I‘ğ‚Í‚P‚Â‚Ì‚İ‚Å‚·"); }
+		if ($in{'myid'} =~ /\0/) { &error("ä¿®æ­£é¸æŠã¯ï¼‘ã¤ã®ã¿ã§ã™"); }
 
 		local($flg,$id,$pw,$rank,$nam);
 
@@ -628,28 +628,28 @@ sub member_mente {
 
 		&member_form($id,$pw,$rank,$nam);
 
-	# C³Às
+	# ä¿®æ­£å®Ÿè¡Œ
 	} elsif ($in{'job'} eq "edit2") {
 
 		local($err,$crypt);
-		if (!$in{'name'}) { $err .= "–¼‘O‚ª–¢“ü—Í‚Å‚·<br>\n"; }
-		if ($in{'myid'} =~ /\W/) { $err .= "ID‚Í‰p”š‚Ì‚İ‚Å‚·<br>\n"; }
+		if (!$in{'name'}) { $err .= "åå‰ãŒæœªå…¥åŠ›ã§ã™<br>\n"; }
+		if ($in{'myid'} =~ /\W/) { $err .= "IDã¯è‹±æ•°å­—ã®ã¿ã§ã™<br>\n"; }
 		if (length($in{'myid'}) < 4 || length($in{'myid'}) > 8) {
-			$err .= "ID‚Í‰p”š‚Å4`8•¶š‚Å‚·<br>\n";
+			$err .= "IDã¯è‹±æ•°å­—ã§4ï½8æ–‡å­—ã§ã™<br>\n";
 		}
 		if ($in{'chg'}) {
-			if ($in{'mypw'} =~ /\W/) { $err .= "ƒpƒXƒ[ƒh‚Í‰p”š‚Ì‚İ‚Å‚·<br>\n"; }
+			if ($in{'mypw'} =~ /\W/) { $err .= "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯è‹±æ•°å­—ã®ã¿ã§ã™<br>\n"; }
 			if (length($in{'mypw'}) < 4 || length($in{'mypw'}) > 8) {
-				$err .= "ƒpƒXƒ[ƒh‚Í‰p”š‚Å4`8•¶š‚Å‚·<br>\n";
+				$err .= "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯è‹±æ•°å­—ã§4ï½8æ–‡å­—ã§ã™<br>\n";
 			}
 
-			# ƒpƒXˆÃ†‰»
+			# ãƒ‘ã‚¹æš—å·åŒ–
 			$crypt = &encrypt($in{'mypw'});
 
 		} elsif (!$in{'chg'} && $in{'mypw'} ne "") {
-			$err .= "ƒpƒXƒ[ƒh‚Ì‹­§•ÏX‚Íƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚É‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢<br>\n";
+			$err .= "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®å¼·åˆ¶å¤‰æ›´ã¯ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã«é¸æŠã—ã¦ãã ã•ã„<br>\n";
 		}
-		if (!$in{'rank'}) { $err .= "Œ ŒÀ‚ª–¢‘I‘ğ‚Å‚·<br>\n"; }
+		if (!$in{'rank'}) { $err .= "æ¨©é™ãŒæœªé¸æŠã§ã™<br>\n"; }
 		if ($err) { &error($err); }
 
 		local($flg,$id,$pw,$rank,$nam,@data);
@@ -665,18 +665,18 @@ sub member_mente {
 			push(@data,$_);
 		}
 
-		# XV
+		# æ›´æ–°
 		seek(DAT, 0, 0);
 		print DAT @data;
 		truncate(DAT, tell(DAT));
 		close(DAT);
 
-	# íœ
+	# å‰Šé™¤
 	} elsif ($in{'job'} eq "dele" && $in{'myid'}) {
 
 		local($flg,@data,@del);
 
-		# íœî•ñ
+		# å‰Šé™¤æƒ…å ±
 		@del = split(/\0/, $in{'myid'});
 
 		open(DAT,"+< $memfile") || &error("Open Error: $memfile");
@@ -690,7 +690,7 @@ sub member_mente {
 			if (!$flg) { push(@data,$_); }
 		}
 
-		# XV
+		# æ›´æ–°
 		seek(DAT, 0, 0);
 		print DAT @data;
 		truncate(DAT, tell(DAT));
@@ -701,29 +701,29 @@ sub member_mente {
 	print <<"EOM";
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
-<input type="submit" value="&lt; ŠÇ—TOP">
+<input type="submit" value="&lt; ç®¡ç†TOP">
 </form>
-<h3 style="font-size:16px">‰ïˆõŠÇ—</h3>
+<h3 style="font-size:16px">ä¼šå“¡ç®¡ç†</h3>
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
 <input type="hidden" name="member" value="1">
 <input type="hidden" name="past" value="3">
-ˆ— :
+å‡¦ç† :
 <select name="job">
-<option value="new">V‹K
-<option value="edit">C³
-<option value="dele">íœ
+<option value="new">æ–°è¦
+<option value="edit">ä¿®æ­£
+<option value="dele">å‰Šé™¤
 </select>
-<input type="submit" value="‘—M‚·‚é">
+<input type="submit" value="é€ä¿¡ã™ã‚‹">
 <p>
 <Table border="0" cellspacing="0" cellpadding="0" width="280">
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="3" width="100%">
 <tr bgcolor="$col1">
-  <td bgcolor="$col3" align="center" nowrap width="30">‘I‘ğ</td>
+  <td bgcolor="$col3" align="center" nowrap width="30">é¸æŠ</td>
   <td bgcolor="$col3" align="center" nowrap>ID</td>
-  <td bgcolor="$col3" align="center" nowrap>–¼‘O</td>
-  <td bgcolor="$col3" align="center" nowrap>ƒ‰ƒ“ƒN</td>
+  <td bgcolor="$col3" align="center" nowrap>åå‰</td>
+  <td bgcolor="$col3" align="center" nowrap>ãƒ©ãƒ³ã‚¯</td>
 </tr>
 EOM
 
@@ -750,7 +750,7 @@ EOM
 }
 
 #-------------------------------------------------
-#  ‰ïˆõƒtƒH[ƒ€
+#  ä¼šå“¡ãƒ•ã‚©ãƒ¼ãƒ 
 #-------------------------------------------------
 sub member_form {
 	local($id,$pw,$rank,$nam) = @_;
@@ -761,9 +761,9 @@ sub member_form {
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
 <input type="hidden" name="member" value="1">
-<input type="submit" value="&lt; ‘O‰æ–Ê">
+<input type="submit" value="&lt; å‰ç”»é¢">
 </form>
-<h3 style="font-size:16px">“o˜^ƒtƒH[ƒ€</h3>
+<h3 style="font-size:16px">ç™»éŒ²ãƒ•ã‚©ãƒ¼ãƒ </h3>
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
 <input type="hidden" name="member" value="1">
@@ -772,11 +772,11 @@ sub member_form {
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col1">
-  <td bgcolor="$col2" align="center" nowrap>–¼‘O</td>
+  <td bgcolor="$col2" align="center" nowrap>åå‰</td>
   <td bgcolor="$col2"><input type="text" name="name" size="25" value="$nam"></td>
 </tr>
 <tr bgcolor="$col1">
-  <td bgcolor="$col2" align="center" nowrap>ƒƒOƒCƒ“ID</td>
+  <td bgcolor="$col2" align="center" nowrap>ãƒ­ã‚°ã‚¤ãƒ³ID</td>
   <td bgcolor="$col2">
 EOM
 
@@ -784,21 +784,21 @@ EOM
 		print $in{'myid'};
 	} else {
 		print "<input type=\"text\" name=\"myid\" size=\"10\" value=\"$id\">\n";
-		print "i‰p”š‚Å4`8•¶šj\n";
+		print "ï¼ˆè‹±æ•°å­—ã§4ï½8æ–‡å­—ï¼‰\n";
 	}
 
 	print <<EOM;
   </td>
 </tr>
 <tr bgcolor="$col1">
-  <td bgcolor="$col2" align="center" nowrap>ƒpƒXƒ[ƒh</td>
+  <td bgcolor="$col2" align="center" nowrap>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</td>
   <td bgcolor="$col2">
-	<input type="password" name="mypw" size="10"> i‰p”š‚Å4`8•¶šj
+	<input type="password" name="mypw" size="10"> ï¼ˆè‹±æ•°å­—ã§4ï½8æ–‡å­—ï¼‰
 EOM
 
 	if ($in{'myid'}) {
 		print "<br><input type=\"checkbox\" name=\"chg\" value=\"1\">\n";
-		print "ƒpƒXƒ[ƒh‚ğ‹­§•ÏX‚·‚éê‡‚Éƒ`ƒFƒbƒN\n";
+		print "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å¼·åˆ¶å¤‰æ›´ã™ã‚‹å ´åˆã«ãƒã‚§ãƒƒã‚¯\n";
 		print "<input type=\"hidden\" name=\"myid\" value=\"$in{'myid'}\">\n";
 	}
 
@@ -806,16 +806,16 @@ EOM
   </td>
 </tr>
 <tr bgcolor="$col1">
-  <td bgcolor="$col2" align="center" nowrap>Œ ŒÀ</td>
+  <td bgcolor="$col2" align="center" nowrap>æ¨©é™</td>
   <td bgcolor="$col2">
 EOM
 
-	local(%rank) = (1,"‰{——‚Ì‚İ", 2,"‰{——&amp;‘OK");
+	local(%rank) = (1,"é–²è¦§ã®ã¿", 2,"é–²è¦§&amp;æ›¸è¾¼OK");
 	foreach (1,2) {
 		if ($rank == $_) {
-			print "<input type=radio name=rank value=\"$_\" checked>ƒŒƒxƒ‹$_ ($rank{$_})<br>\n";
+			print "<input type=radio name=rank value=\"$_\" checked>ãƒ¬ãƒ™ãƒ«$_ ($rank{$_})<br>\n";
 		} else {
-			print "<input type=radio name=rank value=\"$_\">ƒŒƒxƒ‹$_ ($rank{$_})<br>\n";
+			print "<input type=radio name=rank value=\"$_\">ãƒ¬ãƒ™ãƒ«$_ ($rank{$_})<br>\n";
 		}
 	}
 
@@ -825,7 +825,7 @@ EOM
 </table>
 </Td></Tr></Table>
 <p>
-<input type="submit" value="‘—M‚·‚é">
+<input type="submit" value="é€ä¿¡ã™ã‚‹">
 </form>
 </body>
 </html>
@@ -834,10 +834,10 @@ EOM
 }
 
 #-------------------------------------------------
-#  ƒƒjƒ…[‰æ–Ê
+#  ãƒ¡ãƒ‹ãƒ¥ãƒ¼ç”»é¢
 #-------------------------------------------------
 sub menu_disp {
-	# ƒZƒbƒVƒ‡ƒ“ƒfƒBƒŒƒNƒgƒŠ‘|œ
+	# ã‚»ãƒƒã‚·ãƒ§ãƒ³ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæƒé™¤
 	if ($authkey && $in{'login'}) {
 		&ses_clean;
 	}
@@ -845,56 +845,56 @@ sub menu_disp {
 	&header;
 	print <<EOM;
 <form action="$bbscgi">
-<input type="submit" value="&lt; Œf¦”Â">
+<input type="submit" value="&lt; æ²ç¤ºæ¿">
 </form>
 <div align="center">
 <form action="$admincgi" method="post">
 <input type="hidden" name="pass" value="$in{'pass'}">
 <input type="hidden" name="job" value="menu">
-ˆ—“à—e‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B
+å‡¦ç†å†…å®¹ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚
 <p>
 <Table border="0" cellspacing="0" cellpadding="0" width="320">
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col1">
   <td bgcolor="$col3" align="center">
-	‘I‘ğ
+	é¸æŠ
   </td>
   <td bgcolor="$col3" width="100%">
-	&nbsp; ˆ—“à—e
+	&nbsp; å‡¦ç†å†…å®¹
   </td>
 </tr>
 <tr bgcolor="$col2">
   <td bgcolor="$col2" align="center">
-	<input type="submit" name="logfile" value="‘I‘ğ">
+	<input type="submit" name="logfile" value="é¸æŠ">
   </td>
   <td bgcolor="$col2" width="100%">
-	&nbsp; Œ»sƒƒOEƒƒ“ƒeƒiƒ“ƒX
+	&nbsp; ç¾è¡Œãƒ­ã‚°ãƒ»ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
   </td>
 </tr>
 <tr bgcolor="$col2">
   <td bgcolor="$col2" align="center">
-	<input type="submit" name="bakfile" value="‘I‘ğ">
+	<input type="submit" name="bakfile" value="é¸æŠ">
   </td>
   <td bgcolor="$col2" width="100%">
-	&nbsp; ‰ß‹ƒƒOEƒƒ“ƒeƒiƒ“ƒX
+	&nbsp; éå»ãƒ­ã‚°ãƒ»ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹
   </td>
 </tr>
 EOM
 
 	if ($authkey) {
 		print "<tr bgcolor=\"$col2\"><td bgcolor=\"$col2\" align=\"center\">\n";
-		print "<input type=\"submit\" name=\"member\" value=\"‘I‘ğ\"></td>";
-		print "<td bgcolor=\"$col2\" width=\"100%\">&nbsp; ‰ïˆõ”FØ‚ÌŠÇ—</td></tr>\n";
+		print "<input type=\"submit\" name=\"member\" value=\"é¸æŠ\"></td>";
+		print "<td bgcolor=\"$col2\" width=\"100%\">&nbsp; ä¼šå“¡èªè¨¼ã®ç®¡ç†</td></tr>\n";
 	}
 
 	print <<EOM;
 <tr bgcolor="$col2">
   <td bgcolor="$col2" align="center">
-	<input type="submit" name="filesize" value="‘I‘ğ">
+	<input type="submit" name="filesize" value="é¸æŠ">
   </td>
   <td bgcolor="$col2" width="100%">
-	&nbsp; ƒtƒ@ƒCƒ‹—e—Ê‚Ì‰{——
+	&nbsp; ãƒ•ã‚¡ã‚¤ãƒ«å®¹é‡ã®é–²è¦§
   </td>
 </tr>
 </table>
@@ -908,7 +908,7 @@ EOM
 }
 
 #-------------------------------------------------
-#  “üº‰æ–Ê
+#  å…¥å®¤ç”»é¢
 #-------------------------------------------------
 sub enter {
 	&header;
@@ -918,12 +918,12 @@ sub enter {
 <tr><td align="center">
 	<fieldset>
 	<legend>
-	¥ŠÇ—ƒpƒXƒ[ƒh“ü—Í
+	â–¼ç®¡ç†ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å…¥åŠ›
 	</legend>
 	<form action="$admincgi" method="post">
 	<input type="hidden" name="login" value="1">
 	<input type="password" name="pass" size="16">
-	<input type="submit" value=" ”FØ "></form>
+	<input type="submit" value=" èªè¨¼ "></form>
 	</fieldset>
 </td></tr>
 </table>
@@ -940,7 +940,7 @@ EOM
 }
 
 #-------------------------------------------------
-#  ƒZƒVƒ‡ƒ“ƒfƒBƒŒƒNƒgƒŠ‘|œ
+#  ã‚»ã‚·ãƒ§ãƒ³ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæƒé™¤
 #-------------------------------------------------
 sub ses_clean {
 	local($mtime,@dir);

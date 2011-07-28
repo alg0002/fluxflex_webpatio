@@ -1,13 +1,13 @@
-#„¡„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
-#„  [ WebPatio ]
-#„  find.pl - 2007/04/09
-#„  Copyright (c) KentWeb
-#„  webmaster@kent-web.com
-#„  http://www.kent-web.com/
-#„¤„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
+#â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+#â”‚ [ WebPatio ]
+#â”‚ find.pl - 2007/04/09
+#â”‚ Copyright (c) KentWeb
+#â”‚ webmaster@kent-web.com
+#â”‚ http://www.kent-web.com/
+#â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 #-------------------------------------------------
-#  ƒ[ƒhŒŸõ
+#  ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢
 #-------------------------------------------------
 sub find {
 	local($target,$alarm,$next,$back,$enwd,@log1,@log2,@log3,@wd);
@@ -16,14 +16,14 @@ sub find {
 	print <<"EOM";
 <div align="center">
 <table width="95%"><tr><td align="right" nowrap>
-<a href="$bbscgi?">ƒgƒbƒvƒy[ƒW</a> &gt; ƒ[ƒhŒŸõ
+<a href="$bbscgi?">ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸</a> &gt; ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢
 </td></tr></table>
 <Table border="0" cellspacing="0" cellpadding="0" width="95%">
 <Tr bgcolor="$col1"><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col3"><td bgcolor="$col3" nowrap width="92%">
 <img src="$imgurl/glass.gif" align="middle">
-&nbsp;<b>ƒ[ƒhŒŸõ</b></td>
+&nbsp;<b>ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢</b></td>
 </tr></table></Td></Tr></Table>
 <P>
 <form action="$bbscgi" method="post">
@@ -32,8 +32,8 @@ sub find {
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col2"><td bgcolor="$col2">
-ƒL[ƒ[ƒh <input type="text" name="word" size="38" value="$in{'word'}"> &nbsp;
-ğŒ <select name="op">
+ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ <input type="text" name="word" size="38" value="$in{'word'}"> &nbsp;
+æ¡ä»¶ <select name="op">
 EOM
 
 	foreach ("AND", "OR") {
@@ -43,19 +43,19 @@ EOM
 			print "<option value=\"$_\">$_\n";
 		}
 	}
-	print "</select> &nbsp; •\\¦ <select name=vw>\n";
+	print "</select> &nbsp; è¡¨\ç¤º <select name=vw>\n";
 	foreach (10,15,20,25) {
 		if ($in{'vw'} == $_) {
-			print "<option value=\"$_\" selected>$_Œ\n";
+			print "<option value=\"$_\" selected>$_ä»¶\n";
 		} else {
-			print "<option value=\"$_\">$_Œ\n";
+			print "<option value=\"$_\">$_ä»¶\n";
 		}
 	}
-	print "</select><br>ŒŸõ”ÍˆÍ ";
+	print "</select><br>æ¤œç´¢ç¯„å›² ";
 
 	if ($in{'log'} eq "") { $in{'log'} = 0; }
 	@log1 = ($nowfile, $pastfile);
-	@log2 = ("Œ»sƒƒO", "‰ß‹ƒƒO");
+	@log2 = ("ç¾è¡Œãƒ­ã‚°", "éå»ãƒ­ã‚°");
 	@log3 = ("view", "past");
 	foreach (0,1) {
 		if ($in{'log'} == $_) {
@@ -64,31 +64,31 @@ EOM
 			print "<input type=radio name=log value=\"$_\">$log2[$_]\n";
 		}
 	}
-	print "<br>ŒŸõ€–Ú ";
+	print "<br>æ¤œç´¢é …ç›® ";
 	if ($in{'s'} eq "") { $in{'s'} = 1; }
 	if ($in{'s'} == 1) {
-		print "<input type=checkbox name=s value=\"1\" checked>ƒgƒsƒbƒNƒX\n";
+		print "<input type=checkbox name=s value=\"1\" checked>ãƒˆãƒ”ãƒƒã‚¯ã‚¹\n";
 	} else {
-		print "<input type=checkbox name=s value=\"1\">ƒgƒsƒbƒNƒX\n";
+		print "<input type=checkbox name=s value=\"1\">ãƒˆãƒ”ãƒƒã‚¯ã‚¹\n";
 	}
 	if ($in{'n'} eq "") { $in{'n'} = 0; }
 	if ($in{'n'} == 1) {
-		print "<input type=checkbox name=n value=\"1\" checked>–¼‘O\n";
+		print "<input type=checkbox name=n value=\"1\" checked>åå‰\n";
 	} else {
-		print "<input type=checkbox name=n value=\"1\">–¼‘O\n";
+		print "<input type=checkbox name=n value=\"1\">åå‰\n";
 	}
 
 	print <<EOM;
 &nbsp;&nbsp;
-<input type="submit" value="ŒŸõÀs">
+<input type="submit" value="æ¤œç´¢å®Ÿè¡Œ">
 </td></form></tr></table>
 </Td></Tr></Table>
 EOM
 
-	# ŒŸõÀs
+	# æ¤œç´¢å®Ÿè¡Œ
 	if ($in{'word'} && ($in{'s'} || $in{'n'})) {
 
-		# ƒAƒ‰[ƒ€”’è‹`
+		# ã‚¢ãƒ©ãƒ¼ãƒ æ•°å®šç¾©
 		$alarm = int($m_max*0.9);
 
 		print <<EOM;
@@ -96,10 +96,10 @@ EOM
 <Table border="0" cellspacing="0" cellpadding="0" width="95%"><Tr>
 <Td bgcolor="$col1"><table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col2"><td bgcolor="$col2" width="20"></td>
-<td bgcolor="$col2" width="70%" nowrap><b>ƒgƒsƒbƒNƒX</b></td>
-<td bgcolor="$col2" nowrap><b>ì¬Ò</b></td>
-<td bgcolor="$col2" nowrap><b>•ÔM</b></td>
-<td bgcolor="$col2" nowrap><b>ÅIXV</b></td></tr>
+<td bgcolor="$col2" width="70%" nowrap><b>ãƒˆãƒ”ãƒƒã‚¯ã‚¹</b></td>
+<td bgcolor="$col2" nowrap><b>ä½œæˆè€…</b></td>
+<td bgcolor="$col2" nowrap><b>è¿”ä¿¡</b></td>
+<td bgcolor="$col2" nowrap><b>æœ€çµ‚æ›´æ–°</b></td></tr>
 EOM
 
 		$in{'word'} =~ s/\x81\x40/ /g;
@@ -129,7 +129,7 @@ EOM
 				if ($i < $p + 1) { next; }
 				if ($i > $p + $in{'vw'}) { next; }
 
-				# ƒAƒCƒRƒ“’è‹`
+				# ã‚¢ã‚¤ã‚³ãƒ³å®šç¾©
 				if ($key eq '0') { $icon =  'fold3.gif'; }
 				elsif ($key == 2) { $icon = 'look.gif'; }
 				elsif ($res >= $alarm) { $icon = 'fold5.gif'; }
@@ -149,16 +149,16 @@ EOM
 		close(IN);
 
 		print "<tr bgcolor=\"$col2\"><td bgcolor=\"$col2\"><br></td>";
-		print "<td bgcolor=\"$col2\" colspan=\"4\">ŒŸõŒ‹‰ÊF<b>$i</b>Œ &nbsp;&nbsp;";
+		print "<td bgcolor=\"$col2\" colspan=\"4\">æ¤œç´¢çµæœï¼š<b>$i</b>ä»¶ &nbsp;&nbsp;";
 
 		$next = $p + $in{'vw'};
 		$back = $p - $in{'vw'};
 		$enwd = &url_enc($in{'word'});
 		if ($back >= 0) {
-			print "[<a href=\"$bbscgi?mode=find&p=$back&word=$enwd&vw=$in{'vw'}&op=$in{'op'}&log=$in{'log'}&s=$in{'s'}&n=$in{'n'}\">‘O‚Ì$in{'vw'}Œ</a>]\n";
+			print "[<a href=\"$bbscgi?mode=find&p=$back&word=$enwd&vw=$in{'vw'}&op=$in{'op'}&log=$in{'log'}&s=$in{'s'}&n=$in{'n'}\">å‰ã®$in{'vw'}ä»¶</a>]\n";
 		}
 		if ($next < $i) {
-			print "[<a href=\"$bbscgi?mode=find&p=$next&word=$enwd&vw=$in{'vw'}&op=$in{'op'}&log=$in{'log'}&s=$in{'s'}&n=$in{'n'}\">Ÿ‚Ì$in{'vw'}Œ</a>]\n";
+			print "[<a href=\"$bbscgi?mode=find&p=$next&word=$enwd&vw=$in{'vw'}&op=$in{'op'}&log=$in{'log'}&s=$in{'s'}&n=$in{'n'}\">æ¬¡ã®$in{'vw'}ä»¶</a>]\n";
 		}
 
 		print "</td></tr></table></Td></Tr></Table>\n";

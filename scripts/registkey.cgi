@@ -1,17 +1,17 @@
 #!/usr/local/bin/perl
 
-#„¡„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
-#„  œ“ŠeƒL[—p‰æ‘œ•\Ž¦ƒ‚ƒWƒ…[ƒ‹
-#„  registkey.cgi - 2007/02/25
-#„  Copyright (c) KentWeb
-#„  webmaster@kent-web.com
-#„  http://www.kent-web.com/
-#„¤„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
+#â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+#â”‚ â—æŠ•ç¨¿ã‚­ãƒ¼ç”¨ç”»åƒè¡¨ç¤ºãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«
+#â”‚ registkey.cgi - 2007/02/25
+#â”‚ Copyright (c) KentWeb
+#â”‚ webmaster@kent-web.com
+#â”‚ http://www.kent-web.com/
+#â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-# ŠO•”ƒtƒ@ƒCƒ‹Žæ‚èž‚Ý
+# å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«å–ã‚Šè¾¼ã¿
 require '../scripts/init.cgi';
 
-# GIF‰æ‘œi•ÏX•s‰Âj
+# GIFç”»åƒï¼ˆå¤‰æ›´ä¸å¯ï¼‰
 %gif_img = (
 	0 => {
 		10 => "080012000002158c8fa9cb0b8fc09186068ba7aefbf63c41cd481e0500",
@@ -63,10 +63,10 @@ require '../scripts/init.cgi';
 		},
 	);
 
-# “ŠeƒL[•¶Žš”i•ÏX•s‰Âj
+# æŠ•ç¨¿ã‚­ãƒ¼æ–‡å­—æ•°ï¼ˆå¤‰æ›´ä¸å¯ï¼‰
 $key_len = 4;
 
-# ƒpƒ‰ƒ[ƒ^Žó‚¯Žæ‚è
+# ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å—ã‘å–ã‚Š
 $buf = $ENV{'QUERY_STRING'};
 $buf =~ s/\%21/!/g;
 $buf =~ s/<//g;
@@ -76,26 +76,26 @@ $buf =~ s/&//g;
 $buf =~ s/\s//g;
 $buf =~ s/\0//g;
 
-# ‰æ‘œ•\Ž¦
+# ç”»åƒè¡¨ç¤º
 require $regkeypl;
 &key_image;
 
 #-------------------------------------------------
-#  “ŠeƒL[‰æ‘œ
+#  æŠ•ç¨¿ã‚­ãƒ¼ç”»åƒ
 #-------------------------------------------------
 sub key_image {
-	# •œ†
+	# å¾©å·
 	local($plain) = &pcp_decode($buf, $pcp_passwd);
 
-	# æ“ª‚Ì‚S•¶Žš‚ð’Šo
+	# å…ˆé ­ã®ï¼”æ–‡å­—ã‚’æŠ½å‡º
 	$plain =~ s/^(\d{$key_len}).*/$1/;
 
-	# ‰æ‘œ‚P–‡‚ ‚½‚èƒTƒCƒY
+	# ç”»åƒï¼‘æžšã‚ãŸã‚Šã‚µã‚¤ã‚º
 	local($gif_w, $gif_h);
 	$gif_w = $gif_img{'w'}{$regkey_pt};
 	$gif_h = $gif_img{'h'}{$regkey_pt};
 
-	# •\Ž¦ŠJŽn
+	# è¡¨ç¤ºé–‹å§‹
 	print "Content-type: image/gif\n\n";
 	binmode(STDOUT);
 
@@ -107,7 +107,7 @@ sub key_image {
 }
 
 #-------------------------------------------------
-# GIFƒwƒbƒ_
+# GIFãƒ˜ãƒƒãƒ€
 #-------------------------------------------------
 sub gif_head {
 	# Signature(3B) 
@@ -124,11 +124,11 @@ sub gif_head {
 	# Pixel Aspect Ratio(1B)
 	$ret .= pack("H*", "800000");
 
-	# •¶ŽšF : Global Color Table(0`255~3B)
+	# æ–‡å­—è‰² : Global Color Table(0ï½ž255Ã—3B)
 	$moji_col =~ /^#?([a-f0-9]{6})$/i;
 	$ret .= pack("H*", $1);
 
-	# ”wŒiF : Global Color Table(0`255~3B)
+	# èƒŒæ™¯è‰² : Global Color Table(0ï½ž255Ã—3B)
 	$back_col =~ /^#?([a-f0-9]{6})$/i;
 	$ret .= pack("H*", $1);
 
@@ -136,7 +136,7 @@ sub gif_head {
 }
 
 #-------------------------------------------------
-# GIF–{‘Ì
+# GIFæœ¬ä½“
 #-------------------------------------------------
 sub gif_body {
 	my $ret;
@@ -163,7 +163,7 @@ sub gif_body {
 		# Logical Screen Height(2B)
 		$ret .= pack("C2", 256, 256);
 
-		# ‰æ‘œ–{‘Ì
+		# ç”»åƒæœ¬ä½“
 		$ret .= pack("H*", $gif_img{$_}{$regkey_pt});
     	}
 	$ret;

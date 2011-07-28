@@ -1,14 +1,14 @@
 #!/usr/local/bin/perl
 
-#„¡„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
-#„  [ WebPatio ]
-#„  patio.cgi - 2011/04/08
-#„  Copyright (c) KentWeb
-#„  webmaster@kent-web.com
-#„  http://www.kent-web.com/
-#„¤„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ„Ÿ
+#â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+#â”‚ [ WebPatio ]
+#â”‚ patio.cgi - 2011/04/08
+#â”‚ Copyright (c) KentWeb
+#â”‚ webmaster@kent-web.com
+#â”‚ http://www.kent-web.com/
+#â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-# ŠO•”ƒtƒ@ƒCƒ‹æ‚è‚İ
+# å¤–éƒ¨ãƒ•ã‚¡ã‚¤ãƒ«å–ã‚Šè¾¼ã¿
 require '../scripts/init.cgi';
 require $jcode;
 
@@ -28,12 +28,12 @@ elsif ($mode eq "logoff") { &logoff; }
 &list_view;
 
 #-------------------------------------------------
-#  ƒƒjƒ…[•”•\¦
+#  ãƒ¡ãƒ‹ãƒ¥ãƒ¼éƒ¨è¡¨ç¤º
 #-------------------------------------------------
 sub list_view {
 	local($alarm,$i,$data,$top,$count);
 
-	# ƒAƒ‰[ƒ€”’è‹`
+	# ã‚¢ãƒ©ãƒ¼ãƒ æ•°å®šç¾©
 	$alarm = int ( $m_max * 0.9 );
 
 	&header();
@@ -48,7 +48,7 @@ sub list_view {
 EOM
 
 	if ($authkey) {
-		print "<td align=\"right\">‚æ‚¤‚±‚»A<b>$my_name‚³‚ñ</b></td>\n";
+		print "<td align=\"right\">ã‚ˆã†ã“ãã€<b>$my_nameã•ã‚“</b></td>\n";
 	}
 
 	print <<EOM;
@@ -59,26 +59,26 @@ EOM
 <tr bgcolor="$col1">
   <td align="right" nowrap>
 	<font color="$col2">|</font>
-	<a href="$readcgi?mode=form"><font color="$col2">V‹KƒXƒŒƒbƒh</font></a>
+	<a href="$readcgi?mode=form"><font color="$col2">æ–°è¦ã‚¹ãƒ¬ãƒƒãƒ‰</font></a>
 	<font color="$col2">|</font>
-	<a href="$home" target="_top"><font color="$col2">ƒz[ƒ€‚É–ß‚é</font></a>
+	<a href="$home" target="_top"><font color="$col2">ãƒ›ãƒ¼ãƒ ã«æˆ»ã‚‹</font></a>
 	<font color="$col2">|</font>
-	<a href="$notepage"><font color="$col2">—¯ˆÓ–€</font></a>
+	<a href="$notepage"><font color="$col2">ç•™æ„äº‹é …</font></a>
 	<font color="$col2">|</font>
-	<a href="$bbscgi?mode=find"><font color="$col2">ƒ[ƒhŒŸõ</font></a>
+	<a href="$bbscgi?mode=find"><font color="$col2">ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢</font></a>
 	<font color="$col2">|</font>
-	<a href="$readcgi?mode=past"><font color="$col2">‰ß‹ƒƒO</font></a>
+	<a href="$readcgi?mode=past"><font color="$col2">éå»ãƒ­ã‚°</font></a>
 	<font color="$col2">|</font>
 EOM
 
-	# ”FØƒ‚[ƒh‚Ì‚Æ‚«
+	# èªè¨¼ãƒ¢ãƒ¼ãƒ‰ã®ã¨ã
 	if ($authkey) {
-		print "<a href=\"$bbscgi?mode=logoff\"><font color=\"$col2\">ƒƒOƒIƒt</font></a>\n";
+		print "<a href=\"$bbscgi?mode=logoff\"><font color=\"$col2\">ãƒ­ã‚°ã‚ªãƒ•</font></a>\n";
 		print "<font color=\"$col2\">|</font>\n";
 	}
 
 	print <<EOM;
-	<a href="$admincgi"><font color="$col2">ŠÇ——p</font></a>
+	<a href="$admincgi"><font color="$col2">ç®¡ç†ç”¨</font></a>
 	<font color="$col2">|</font>&nbsp;&nbsp;&nbsp;
   </td>
 </tr>
@@ -90,19 +90,19 @@ EOM
 <tr bgcolor="$col2">
   <td bgcolor="$col1"></td>
   <td bgcolor="$col1" colspan="5">
-	<font color="$col2"><b>ƒXƒŒƒbƒhˆê——</b></font>
+	<font color="$col2"><b>ã‚¹ãƒ¬ãƒƒãƒ‰ä¸€è¦§</b></font>
   </td>
 </tr>
 <tr bgcolor="$col2">
   <td bgcolor="$col2" width="20"><br></td>
-  <td bgcolor="$col2" width="70%" nowrap><b>ƒgƒsƒbƒNƒX</b></td>
-  <td bgcolor="$col2" nowrap><b>ì¬Ò</b></td>
-  <td bgcolor="$col2" nowrap><b>•ÔM</b></td>
-  <td bgcolor="$col2" nowrap><b>QÆ</b></td>
-  <td bgcolor="$col2" nowrap><b>ÅIXV</b></td></tr>
+  <td bgcolor="$col2" width="70%" nowrap><b>ãƒˆãƒ”ãƒƒã‚¯ã‚¹</b></td>
+  <td bgcolor="$col2" nowrap><b>ä½œæˆè€…</b></td>
+  <td bgcolor="$col2" nowrap><b>è¿”ä¿¡</b></td>
+  <td bgcolor="$col2" nowrap><b>å‚ç…§</b></td>
+  <td bgcolor="$col2" nowrap><b>æœ€çµ‚æ›´æ–°</b></td></tr>
 EOM
 
-	# ƒXƒŒƒbƒh•\¦
+	# ã‚¹ãƒ¬ãƒƒãƒ‰è¡¨ç¤º
 	if ($p eq "") { $p = 0; }
 	$i = 0;
 	open(IN,"$nowfile") || &error("Open Error: $nowfile");
@@ -115,13 +115,13 @@ EOM
 		s/\n//;
 		local($num,$sub,$res,$nam,$date,$na2,$key,$upl) = split(/<>/);
 
-		# QÆƒJƒEƒ“ƒ^“Ç‚İ‚İ
+		# å‚ç…§ã‚«ã‚¦ãƒ³ã‚¿èª­ã¿è¾¼ã¿
 		open(NO,"$logdir/$num.dat");
 		$data = <NO>;
 		close(NO);
 		($count) = split(/:/, $data);
 
-		# ƒAƒCƒRƒ“’è‹`
+		# ã‚¢ã‚¤ã‚³ãƒ³å®šç¾©
 		if ($key eq '0') { $icon = 'fold3.gif'; }
 		elsif ($key == 2) { $icon = 'look.gif'; }
 		elsif ($res >= $alarm) { $icon = 'fold5.gif'; }
@@ -142,7 +142,7 @@ EOM
 
 	print "</table></Td></Tr></Table>\n";
 
-	# ƒy[ƒWˆÚ“®ƒ{ƒ^ƒ“•\¦
+	# ãƒšãƒ¼ã‚¸ç§»å‹•ãƒœã‚¿ãƒ³è¡¨ç¤º
 	if ($p - $menu1 >= 0 || $p + $menu1 < $i) {
 		local($x,$y) = (1,0);
 		print "<p><table width=\"95%\"><tr><td class=\"num\"> Page: ";
@@ -159,20 +159,20 @@ EOM
 		print "</td></tr></table>\n";
 	}
 
-	# ’˜ìŒ •\¦iíœ•s‰Âj
+	# è‘—ä½œæ¨©è¡¨ç¤ºï¼ˆå‰Šé™¤ä¸å¯ï¼‰
 	print <<"EOM";
 <br><br>
 <Table border="0" cellspacing="0" cellpadding="0" width="95%">
 <Tr><Td bgcolor="$col1">
 <table border="0" cellspacing="1" cellpadding="5" width="100%">
 <tr bgcolor="$col2"><td bgcolor="$col2" align="center">
-<img src="$imgurl/fold1.gif" alt="•W€ƒXƒŒƒbƒh"> •W€ƒXƒŒƒbƒh &nbsp;&nbsp;
-<img src="$imgurl/fold6.gif" alt="“Y•t‚ ‚è"> “Y•t‚ ‚è &nbsp;&nbsp;
-<img src="$imgurl/fold3.gif" alt="ƒƒbƒN’†"> ƒƒbƒN’†i‘•s‰Âj&nbsp;&nbsp;
-<img src="$imgurl/fold5.gif" alt="ƒAƒ‰[ƒ€"> ƒAƒ‰[ƒ€i•ÔM”$alarmŒˆÈãj&nbsp;&nbsp;
-<img src="$imgurl/look.gif" alt="ŠÇ—ÒƒƒbƒZ[ƒW"> ŠÇ—ÒƒƒbƒZ[ƒW
+<img src="$imgurl/fold1.gif" alt="æ¨™æº–ã‚¹ãƒ¬ãƒƒãƒ‰"> æ¨™æº–ã‚¹ãƒ¬ãƒƒãƒ‰ &nbsp;&nbsp;
+<img src="$imgurl/fold6.gif" alt="æ·»ä»˜ã‚ã‚Š"> æ·»ä»˜ã‚ã‚Š &nbsp;&nbsp;
+<img src="$imgurl/fold3.gif" alt="ãƒ­ãƒƒã‚¯ä¸­"> ãƒ­ãƒƒã‚¯ä¸­ï¼ˆæ›¸è¾¼ä¸å¯ï¼‰&nbsp;&nbsp;
+<img src="$imgurl/fold5.gif" alt="ã‚¢ãƒ©ãƒ¼ãƒ "> ã‚¢ãƒ©ãƒ¼ãƒ ï¼ˆè¿”ä¿¡æ•°$alarmä»¶ä»¥ä¸Šï¼‰&nbsp;&nbsp;
+<img src="$imgurl/look.gif" alt="ç®¡ç†è€…ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸"> ç®¡ç†è€…ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 </td></tr></table></Td></Tr></Table><br><br>
-<!-- ’˜ìŒ •\\¦•”Eíœ‹Ö~ ($ver) -->
+<!-- è‘—ä½œæ¨©è¡¨\ç¤ºéƒ¨ãƒ»å‰Šé™¤ç¦æ­¢ ($ver) -->
 <span class="s1">
 - <a href="http://www.kent-web.com/" target="_top">Web Patio</a> -
 </span><br>
@@ -187,7 +187,7 @@ EOM
 }
 
 #-------------------------------------------------
-#  URLƒGƒ“ƒR[ƒh
+#  URLã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰
 #-------------------------------------------------
 sub url_enc {
 	local($_) = @_;
@@ -198,7 +198,7 @@ sub url_enc {
 }
 
 #-------------------------------------------------
-#  ƒƒOƒIƒt
+#  ãƒ­ã‚°ã‚ªãƒ•
 #-------------------------------------------------
 sub logoff {
 	if ($my_ckid =~ /^\w+$/) {
