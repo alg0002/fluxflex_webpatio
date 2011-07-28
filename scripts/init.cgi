@@ -479,6 +479,9 @@ sub parse_form {
 
 				$ctype{$uplno} = $ctype;
 			}
+
+			# ファイル保存
+			
 		}else{
 			# エスケープ
 			$val =~ s/&/&amp;/g;
