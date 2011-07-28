@@ -1,2 +1,7 @@
 [deploy]
 chmod 755 public_html/dispatch.fcgi
+ls -lA
+ls -lA public_html
+ls -lA public_html/data
+ls -lA scripts
+ls -lA scripts/lib
