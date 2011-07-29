@@ -4,6 +4,11 @@
 #│ Copyright (c) KentWeb
 #│ webmaster@kent-web.com
 #│ http://www.kent-web.com/
+#│ 
+#│ [ WebPatio for fluxflex]
+#│ Modified by alg
+#│ alg.info@gmail.com
+#│ https://github.com/alg0002/fluxflex_webpatio
 #└─────────────────────────────────
 $ver = 'WebPatio v3.4';
 #┌─────────────────────────────────
@@ -20,32 +25,32 @@ $ver = 'WebPatio v3.4';
 #
 # 【ファイル構成例】
 #  scripts
-#      |    patio.cgi     [705]
-#      |    read.cgi      [705]
-#      |    regist.cgi    [705]
-#      |    admin.cgi     [705]
-#      |    registkey.cgi [705]
-#      |    init.cgi      [604]
+#      |    patio.cgi
+#      |    read.cgi
+#      |    regist.cgi
+#      |    admin.cgi
+#      |    registkey.cgi
+#      |    init.cgi
 #      |    note.html
 #      |
-#      +-- lib / jcode.pl     [604]
-#                upload.pl    [604]
-#                edit_log.pl  [604]
-#                find.pl      [604]
-#                check.pl     [604]
-#                registkey.pl [604]
+#      +-- lib / jcode.pl
+#                upload.pl
+#                edit_log.pl
+#                find.pl
+#                check.pl
+#                registkey.pl
 #  public_html
-#      |    .htaccess     [705]
-#      |    dispatch.fcgi [705]
-#      +-- data / index1.log  [606]
-#      |          index2.log  [606]
-#      |          memdata.cgi [606]
+#      |    .htaccess
+#      |    dispatch.fcgi [755]
+#      +-- data / index1.log
+#      |          index2.log
+#      |          memdata.cgi
 #      |
-#      +-- log  [707] /
+#      +-- log /
 #      |
-#      +-- ses  [707] /
+#      +-- ses /
 #      |
-#      +-- upl [707] /
+#      +-- upl /
 #      |
 #      +-- img / *.gif
 

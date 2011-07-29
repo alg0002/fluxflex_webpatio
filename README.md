@@ -29,3 +29,10 @@ http://webpatiofor.fluxflex.com/patio.cgi
 http://www.kent-web.com/pubc/kitei.html を参照してください。
 
 ( See http://www.kent-web.com/pubc/kitei.html )
+
+## ToDo
+* 日本語チェック機能の検証
+* コメント入力文字数制限の確認
+* 画像アップロード機能の確認
+* メール送信機能の確認
+* gethostbyaddr関数の確認

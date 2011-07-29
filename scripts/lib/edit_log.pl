@@ -3,6 +3,11 @@
 #│ edit_log.pl - 2011/07/06
 #│ Copyright (c) KentWeb
 #│ http://www.kent-web.com/
+#│ 
+#│ [ WebPatio for fluxflex]
+#│ Modified by alg
+#│ alg.info@gmail.com
+#│ https://github.com/alg0002/fluxflex_webpatio
 #└─────────────────────────────────
 
 #-------------------------------------------------
