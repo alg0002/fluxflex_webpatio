@@ -1,4 +1,4 @@
-#┌─────────────────────────────────
+﻿#┌─────────────────────────────────
 #│ Web Patio v3.4
 #│ init.cgi - 2011/07/06
 #│ Copyright (c) KentWeb
@@ -73,7 +73,7 @@ $authtime = 60;
 
 # 画像アップを許可する（親記事のみ）
 # 0=no 1=yes
-$image_upl = 0;
+$image_upl = 1;
 
 # トリップ機能（ハンドル偽造防止）のための変換キー
 # →　英数字で2文字
@@ -479,9 +479,6 @@ sub parse_form {
 
 				$ctype{$uplno} = $ctype;
 			}
-
-			# ファイル保存
-			
 		}else{
 			# エスケープ
 			$val =~ s/&/&amp;/g;
@@ -515,7 +512,7 @@ sub header {
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
 <style type="text/css">
 <!--

@@ -172,7 +172,7 @@ EOM
 <img src="$imgurl/fold5.gif" alt="アラーム"> アラーム（返信数$alarm件以上）&nbsp;&nbsp;
 <img src="$imgurl/look.gif" alt="管理者メッセージ"> 管理者メッセージ
 </td></tr></table></Td></Tr></Table><br><br>
-<!-- 著作権表\示部・削除禁止 ($ver) -->
+<!-- 著作権表示部・削除禁止 ($ver) -->
 <span class="s1">
 - <a href="http://www.kent-web.com/" target="_top">Web Patio</a> -
 </span><br>
